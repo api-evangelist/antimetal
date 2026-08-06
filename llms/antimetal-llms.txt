@@ -1,0 +1,42 @@
+# Antimetal Docs
+
+## Docs
+
+- [Security and Compliance](https://docs.antimetal.com/admin/security.md): How Antimetal handles security, privacy, and access
+- [Retrieve artifacts by IDs](https://docs.antimetal.com/api-reference/artifacts/retrieve-artifacts-by-ids.md): Fetches multiple evidential artifacts by their IDs. Supports up to 100 IDs per request.
+- [Create a new issue](https://docs.antimetal.com/api-reference/issues/create-a-new-issue.md): Creates a new issue and optionally starts an automated investigation. The issue is created from the provided details, with a seed generated internally. Investigation runs asynchronously - poll GET /issues/{id} to check status.
+- [Delete an issue](https://docs.antimetal.com/api-reference/issues/delete-an-issue.md): Permanently deletes an issue and all associated data
+- [Fetch an issue by ID (UUID)](https://docs.antimetal.com/api-reference/issues/fetch-an-issue-by-id-uuid.md): Retrieves detailed information about a specific issue by its ID (UUID)
+- [Fetch investigation results by ID (UUID)](https://docs.antimetal.com/api-reference/issues/fetch-investigation-results-by-id-uuid.md): Retrieves detailed investigation results including root cause analysis and remediation steps
+- [Fetch issue by number](https://docs.antimetal.com/api-reference/issues/fetch-issue-by-number.md): Lightweight endpoint to retrieve basic issue information by issue number
+- [Fetch issues for an organization](https://docs.antimetal.com/api-reference/issues/fetch-issues-for-an-organization.md): Returns a paginated list of issues for the authenticated organization
+- [Update issue status by ID (UUID)](https://docs.antimetal.com/api-reference/issues/update-issue-status-by-id-uuid.md): Updates the status of an existing issue by its ID (UUID)
+- [Ask Antimetal's AI agent a question](https://docs.antimetal.com/api-reference/query/ask-antimetals-ai-agent-a-question.md): Sends a question to Antimetal's AI agent and returns a natural language answer. Pass the returned conversation_id in subsequent requests to continue the conversation. Set stream: true (and Accept: text/event-stream) to receive a Server-Sent Events stream.
+- [MCP](https://docs.antimetal.com/connect.md): Connect to Antimetal's MCP server from your AI tools
+- [Antimetal Overview](https://docs.antimetal.com/index.md): Learn how to set up and use Antimetal
+- [Azure](https://docs.antimetal.com/integrations/azure.md): Create an Entra service principal for Antimetal monitoring
+- [Azure DevOps](https://docs.antimetal.com/integrations/azure-devops.md): Create a read-only Personal Access Token for Antimetal
+- [CloudWatch](https://docs.antimetal.com/integrations/cloudwatch.md): Set up an IAM Role with CloudWatch access for Antimetal
+- [Datadog](https://docs.antimetal.com/integrations/datadog.md): Generate API and application keys in Datadog for Antimetal
+- [GCP](https://docs.antimetal.com/integrations/gcp.md): Create a GCP service account for Antimetal monitoring
+- [GitHub](https://docs.antimetal.com/integrations/github.md): Connect your GitHub repositories to Antimetal
+- [Grafana](https://docs.antimetal.com/integrations/grafana.md): Connect Grafana Cloud or a self-hosted Grafana instance to Antimetal
+- [Honeycomb](https://docs.antimetal.com/integrations/honeycomb.md): Create a Honeycomb Management API key for Antimetal
+- [Incident.io](https://docs.antimetal.com/integrations/incident-io.md): Create an API key in Incident.io for Antimetal
+- [Integrations Overview](https://docs.antimetal.com/integrations/overview.md): Connect Antimetal to your existing tools and workflows
+- [PagerDuty](https://docs.antimetal.com/integrations/pagerduty.md): Connect PagerDuty to Antimetal
+- [Self-Hosted Observability](https://docs.antimetal.com/integrations/self-hosted-observability.md): Connect Antimetal to observability tools you host yourself, such as Grafana, Victoria Logs, Victoria Metrics, Prometheus, and Pyroscope
+- [Sentry](https://docs.antimetal.com/integrations/sentry.md): Set up an internal integration in Sentry for Antimetal
+- [Slack](https://docs.antimetal.com/integrations/slack.md): Investigate alerts and get weekly digests, directly in Slack
+- [Vercel](https://docs.antimetal.com/integrations/vercel.md): Connect your Vercel account to Antimetal for deployment monitoring and runtime log analysis
+- [Victoria Logs](https://docs.antimetal.com/integrations/victoria-logs.md): Connect your VictoriaLogs instance to Antimetal
+- [Victoria Metrics](https://docs.antimetal.com/integrations/victoria-metrics.md): Connect VictoriaMetrics (self-hosted or Cloud) to Antimetal
+- [Fixes](https://docs.antimetal.com/product/fixes.md): Review a proposed fix, run it yourself, or open a PR straight from Antimetal
+- [Issue Lifecycle](https://docs.antimetal.com/product/issue-lifecycle.md): How issues move from alert to resolution in Antimetal
+- [Search](https://docs.antimetal.com/product/search.md): Ask anything about your infrastructure, services, and systems
+- [Skills](https://docs.antimetal.com/product/skills.md): Use Antimetal directly from your AI coding tools
+- [Quick Start](https://docs.antimetal.com/quick-start.md): Get up and running with Antimetal
+
+## OpenAPI Specs
+
+- [openapi.mintlify](https://docs.antimetal.com/assets/openapi.mintlify.json)

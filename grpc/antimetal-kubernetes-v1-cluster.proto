@@ -1,0 +1,26 @@
+// Antimetal API definitions
+// Copyright Antimetal, Inc. All rights reserved.
+//
+// Use of this source code and APIs are governed by a source available license that can be found in
+// the LICENSE file or at:
+// https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt
+
+syntax = "proto3";
+
+package kubernetes.v1;
+
+// ClusterProvider specifies the provider that is managing the Kubernetes Cluster.
+enum ClusterProvider {
+  CLUSTER_PROVIDER_OTHER = 0;
+  CLUSTER_PROVIDER_EKS = 1;
+  CLUSTER_PROVIDER_GKE = 2;
+  CLUSTER_PROVIDER_AKS = 3;
+  CLUSTER_PROVIDER_KIND = 4;
+}
+
+// Cluster contains information about a Kubernetes cluster.
+message Cluster {
+  string major_version = 1;
+  string minor_version = 2;
+  ClusterProvider provider = 3;
+}

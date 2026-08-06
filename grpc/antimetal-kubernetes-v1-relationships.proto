@@ -1,0 +1,49 @@
+// Antimetal API definitions
+// Copyright Antimetal, Inc. All rights reserved.
+//
+// Use of this source code and APIs are governed by a source available license that can be found in
+// the LICENSE file or at:
+// https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt
+
+syntax = "proto3";
+
+package kubernetes.v1;
+
+// Source owns the target resource (e.g. ReplicaSet "owns" Pod).
+// Inverse of OwnedBy.
+message Owns {}
+
+// Identifies the owner of a resource.
+// Inverse of Owns.
+message OwnedBy {}
+
+// Represents a volume attachment
+// Inverse of AttachedTo.
+message VolumeMount {}
+
+// Represents the the resource that is mounting the Volume.
+// Inverse of VolumeMount.
+message AttachedTo {}
+
+// Represents a resource that is a member of a group (e.g. Namespace "contains" Deployment).
+// Inverse of ContainedBy.
+message Contains {}
+
+// Inverse of Contains. Represents the group that a resource is a member of.
+message ContainedBy {}
+
+// Used to identify the persistent volume claims bound to a persistent volume.
+// Inverse of ClaimsFrom.
+message BoundBy {}
+
+// Used to identify the persistent volume that a persistent volume claim is bound to.
+// Inverse of BoundBy.
+message ClaimsFrom {}
+
+// Used to identify a machine, either physical or a VM, that is registered as a
+// Node.
+message RegisteredAs {}
+
+// Points to the resource that underlyings a Kubernetes Resources (e.g. underlying machine
+// for a K8s node).
+message Underlying {}

@@ -1,0 +1,43 @@
+// Antimetal API definitions
+// Copyright Antimetal, Inc. All rights reserved.
+//
+// Use of this source code and APIs are governed by a source available license that can be found in
+// the LICENSE file or at:
+// https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt
+
+syntax = "proto3";
+
+package resource.v1;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+import "resource/v1/object.proto";
+import "resource/v1/resource.proto";
+
+// Relationship is a directed edge that represents a relationship between two Resources.
+// It is defined like a triplet that contains a predicate, which defines what type of relationship
+// it is, and a subject and object for the predicate. There can be multiple associations with the
+// same predicate type attached to the same resource.
+//
+// Many relationships between Resources in the resource graph are bidirectional.
+// Bidirectional edges are modeled as two separate Relationship objects. When Relationships are
+// updated in the graph the inverse Relationships should be kept up to date.
+message Relationship {
+  // Describes the relationship type.
+  TypeDescriptor type = 1;
+  // Unique identifier for the relationship.
+  bytes id = 2;
+  // Resource id that is the subject of the predicate.
+  ResourceRef subject = 3;
+  // Resource id that is the object of the predicate.
+  ResourceRef object = 4;
+  // The predicate that defines the relationship.
+  // The type is determined by the type field.
+  google.protobuf.Any predicate = 5;
+  // Creation time of the relationship.
+  google.protobuf.Timestamp created_at = 6;
+  // Time when the relationship was last updated.
+  google.protobuf.Timestamp updated_at = 7;
+  // Deletion time of the relationship.
+  google.protobuf.Timestamp deleted_at = 8;
+}

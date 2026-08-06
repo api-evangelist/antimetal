@@ -1,0 +1,20 @@
+// Antimetal API definitions
+// Copyright Antimetal, Inc. All rights reserved.
+//
+// Use of this source code and APIs are governed by a source available license that can be found in
+// the LICENSE file or at:
+// https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt
+
+syntax = "proto3";
+
+package network.v1;
+
+// Represents a relationship between two network resources where subject
+// forwards traffic to object.
+// Inverse of RoutedFrom.
+message RoutesTo {}
+
+// Represents a relationship between two network resources where subject receives
+// traffic from object.
+// Inverse of RoutesTo.
+message RoutedFrom {}

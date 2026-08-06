@@ -1,0 +1,62 @@
+generated: '2026-08-06'
+method: derived
+source: openapi/antimetal-external-api-openapi.json
+format: custom-json
+envelope:
+  media_type: application/json
+  schema: ErrorResponseDto
+  fields:
+  - name: type
+    description: Machine-readable error type identifier.
+  - name: message
+    description: Human-readable error message.
+  - name: request_id
+    description: Correlation id for the failing request — quote it in support requests.
+  - name: details
+    description: Optional structured detail about the failure.
+  note: Antimetal does NOT use RFC 9457 application/problem+json. It ships its own
+    JSON envelope with a type/message/request_id/details shape, applied uniformly to
+    every documented 4xx and 5xx across all nine operations.
+problems:
+- status: 400
+  type: validation-error
+  title: Validation error or bad request
+  source_operations: [batchGetArtifacts, createIssue, listIssues, getIssue, updateIssueStatus,
+    deleteIssue, getIssueResults, query]
+- status: 401
+  type: authentication-required
+  title: Authentication required
+  remediation: 'Present a valid API key in the header "Authorization: Bearer <key>".
+    Keys are generated at https://overlook.antimetal.com/settings/api-keys.'
+  source_operations: [batchGetArtifacts, createIssue, listIssues, getIssue, updateIssueStatus,
+    deleteIssue, getIssueResults, query]
+- status: 403
+  type: insufficient-permissions
+  title: Insufficient permissions
+  source_operations: [batchGetArtifacts, createIssue, listIssues, getIssue, updateIssueStatus,
+    deleteIssue, getIssueResults, query]
+- status: 404
+  type: resource-not-found
+  title: Resource not found
+  source_operations: [getIssue, getIssueByNumber, updateIssueStatus, deleteIssue, getIssueResults]
+- status: 429
+  type: rate-limit-exceeded
+  title: Rate limit exceeded
+  remediation: Back off and retry. The published spec documents the 429 response but
+    does not publish a numeric quota or rate-limit response headers.
+  source_operations: [batchGetArtifacts, createIssue, listIssues, getIssue, updateIssueStatus,
+    deleteIssue, getIssueResults, query]
+- status: 500
+  type: internal-server-error
+  title: Internal server error
+  source_operations: [batchGetArtifacts, createIssue, listIssues, getIssue, getIssueByNumber,
+    updateIssueStatus, deleteIssue, getIssueResults, query]
+coverage:
+  operations_total: 9
+  operations_with_error_responses: 9
+  gaps:
+  - operation: getIssueByNumber
+    note: Documents only 404 and 500 — no 400/401/403/429, unlike every sibling operation.
+  - operation: getIssueByNumber
+    note: Its 500 response declares no content schema, so the error envelope is not
+      typed there.

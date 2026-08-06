@@ -1,0 +1,72 @@
+generated: '2026-08-06'
+method: searched
+source: probed /.well-known/* across every Antimetal host found in apis.yml
+hosts:
+- host: https://antimetal.com
+  documents:
+  - path: /.well-known/api-catalog
+    status: 200
+    content_type: application/linkset+json; profile="https://www.rfc-editor.org/info/rfc9727"
+    file: antimetal-api-catalog.json
+    note: RFC 9727 linkset. Anchors https://bff.antimetal.com/api/v2 and points service-desc
+      at https://docs.antimetal.com/assets/openapi.mintlify.json — this is how the
+      real OpenAPI was located.
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /llms.txt
+    status: 200
+    file: ../llms/antimetal-site-llms.txt
+  - path: /robots.txt
+    status: 200
+    note: Carries a Content-Signal policy — "ai-train=no, search=yes, ai-input=yes"
+      — repeated per user-agent for GPTBot, ClaudeBot, Google-Extended and PerplexityBot.
+- host: https://docs.antimetal.com
+  documents:
+  - path: /.well-known/agent-card.json
+    status: 200
+    content_type: application/json
+    file: ../a2a/antimetal-agent-card.json
+  - path: /.well-known/agent-skills/antimetal/skill.md
+    status: 200
+    content_type: text/markdown
+    file: ../skills/antimetal-published-skill.md
+  - path: /llms.txt
+    status: 200
+    file: ../llms/antimetal-llms.txt
+  - path: /llms-full.txt
+    status: 200
+    note: 93KB verbatim docs dump; not committed (gitignored per pipeline policy).
+- host: https://mcp.antimetal.com
+  documents:
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: application/json
+    file: antimetal-oauth-authorization-server.json
+    note: RFC 8414. Delegates to WorkOS AuthKit at https://antimetal.authkit.app.
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    content_type: application/json
+    file: antimetal-oauth-protected-resource.json
+    note: RFC 9728. resource=https://mcp.antimetal.com, bearer_methods_supported=[header].
+  - path: /.well-known/agent-card.json
+    status: 404
+- host: https://api.antimetal.com
+  documents:
+  - path: /.well-known/agent-card.json
+    status: 403
+  - path: /openapi.json
+    status: 403
+  - path: /openapi.yaml
+    status: 403
+  - path: /swagger.json
+    status: 403
+  - path: /docs
+    status: 403
+  note: Every path on this host returns 403; it is not the documented API host. The
+    documented production base URL is https://bff.antimetal.com/api/v2.

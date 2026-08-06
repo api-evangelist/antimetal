@@ -1,0 +1,81 @@
+generated: '2026-08-06'
+method: derived
+source: mcp/antimetal-mcp.yml + openapi/antimetal-external-api-openapi.json
+surfaces:
+  openapi:
+    file: openapi/antimetal-external-api-openapi.json
+    title: Antimetal External API
+    version: '2026-03-17'
+    base_url: https://bff.antimetal.com/api/v2
+    operations: 9
+    gated: false
+  mcp:
+    url: https://mcp.antimetal.com
+    gated: true
+    note: tools/list returns 401 anonymously; tool names came from Antimetal's published
+      Agent Skills, so bindings below are mapped by name and documented semantics,
+      not by an introspected inputSchema.
+  graphql: null
+crosswalk:
+- tool: search_issues
+  category: issues
+  rest: [listIssues]
+  binding: rest
+  confidence: high
+  note: GET /issues supports search, status, environment filters and cursor pagination
+    — the documented behaviour of the tool.
+- tool: get_issue_report
+  category: issues
+  rest: [getIssueResults, getIssue]
+  binding: rest
+  confidence: high
+  note: Fans out — the report combines the issue record (getIssue / getIssueByNumber)
+    with the investigation results payload (getIssueResults, which carries rootCause,
+    causalTree, remediation and timeline).
+- tool: get_artifact
+  category: artifacts
+  rest: [batchGetArtifacts]
+  binding: rest
+  confidence: high
+  note: REST operation is a batch form (up to 100 ids per request); the tool is documented
+    singular.
+- tool: investigate_issue
+  category: issues
+  rest: [createIssue]
+  binding: rest
+  confidence: medium
+  note: POST /issues creates an issue and optionally starts an automated investigation
+    asynchronously. The tool may also re-trigger investigation on an existing issue,
+    which has no distinct public REST operation.
+- tool: get_issue_fixes
+  category: remediation
+  rest: [getIssueResults]
+  binding: rest
+  confidence: medium
+  note: The public REST surface exposes remediation only nested inside IssueResultsDto.remediation.
+    The tool returns remediation grouped into categories, which is a shaping the REST
+    response does not itself provide.
+mcp_only: []
+rest_only:
+- operation: query
+  path: POST /query
+  reason: Natural-language query endpoint (with optional SSE streaming) has no separately
+    named MCP tool — in an MCP client the host model is the conversational layer.
+- operation: getIssueByNumber
+  path: GET /issues/by_number/{number}
+  reason: Lightweight lookup by human-facing issue number; folded into get_issue_report
+    rather than exposed as its own tool.
+- operation: updateIssueStatus
+  path: PATCH /issues/{id}
+  reason: No write/status-mutation tool is named in the published skills.
+- operation: deleteIssue
+  path: DELETE /issues/{id}
+  reason: Destructive operation; no corresponding tool is named in the published skills.
+coverage:
+  tools_named: 5
+  tools_bound: 5
+  tools_bound_high_confidence: 3
+  mcp_only: 0
+  rest_operations_total: 9
+  rest_operations_with_tool: 5
+  rest_only: 4

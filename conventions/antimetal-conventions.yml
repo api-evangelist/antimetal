@@ -1,0 +1,87 @@
+generated: '2026-08-06'
+method: derived
+source: openapi/antimetal-external-api-openapi.json + https://docs.antimetal.com/
+api: Antimetal External API
+base_url: https://bff.antimetal.com/api/v2
+authentication:
+  style: bearer-api-key
+  scheme: http bearer
+  header: 'Authorization: Bearer <api_key>'
+  applied: globally (root-level security)
+  key_management: https://overlook.antimetal.com/settings/api-keys
+  detail: authentication/antimetal-authentication.yml
+idempotency:
+  supported: false
+  evidence: No Idempotency-Key header, parameter, or documented replay semantics appears
+    anywhere in the OpenAPI or the published docs. POST /issues and POST /query are
+    both non-idempotent as published.
+pagination:
+  style: cursor
+  applies_to: [listIssues]
+  request_params:
+  - name: limit
+    in: query
+    required: false
+  - name: startingAfter
+    in: query
+    required: false
+  - name: endingBefore
+    in: query
+    required: false
+  response_fields: [object, data, has_more, after, before]
+  note: Bidirectional cursor pagination in the Stripe idiom — startingAfter/endingBefore
+    with has_more plus after/before cursors on the envelope.
+filtering:
+  applies_to: [listIssues]
+  params: [status, environment, search]
+batching:
+  applies_to: [batchGetArtifacts]
+  note: GET /artifacts takes a repeated `id` query parameter, up to 100 ids per request.
+request_tracing:
+  header: null
+  response_field: request_id
+  note: Every error response carries a request_id on the ErrorResponseDto envelope.
+    No request-id header is documented on success responses.
+streaming:
+  supported: true
+  operations: [query]
+  mechanism: Server-Sent Events
+  how: 'Set stream: true in the request body and send Accept: text/event-stream. Chunks
+    are QueryChunkDto {text, conversation_id, artifact}.'
+conversation_state:
+  field: conversation_id
+  note: POST /query returns a conversation_id; pass it back on subsequent requests
+    to continue the same conversation.
+async_execution:
+  note: Investigation started by POST /issues runs asynchronously. The documented pattern
+    is to poll GET /issues/{id} for status — there is no callback or webhook.
+versioning:
+  scheme: uri-path
+  current: v2
+  spec_version: '2026-03-17'
+  note: Path carries the major version (/api/v2); info.version is a date stamp. No
+    version request header is documented.
+environments:
+- name: production
+  url: https://bff.antimetal.com/api/v2
+- name: dev
+  url: https://bff.dev.antimetal.com/api/v2
+  note: Declared in the OpenAPI servers[] as "Dev API". Antimetal publishes no test
+    credentials or sandbox fixtures, so this is not captured as a sandbox artifact.
+error_envelope:
+  format: custom-json
+  fields: [type, message, request_id, details]
+  detail: errors/antimetal-problem-types.yml
+rate_limiting:
+  signalled: true
+  mechanism: HTTP 429 documented on 8 of 9 operations
+  headers_documented: false
+  quota_published: false
+identifiers:
+  issue: UUID (uuid) plus a human-facing sequential `number`
+  artifact: opaque id string
+cross_links:
+  authentication: authentication/antimetal-authentication.yml
+  errors: errors/antimetal-problem-types.yml
+  lifecycle: lifecycle/antimetal-lifecycle.yml
+  data_model: data-model/antimetal-data-model.yml

@@ -1,0 +1,155 @@
+# Antimetal
+
+> Antimetal handles everything that happens after you deploy. It investigates, fixes, and prevents production issues by connecting your cloud platforms, observability tools, and code.
+
+Antimetal is an AI-powered platform for software engineering teams. When an alert fires, Antimetal pulls together data from logs, metrics, traces, code, and incident history to identify the root cause — then generates production-ready fixes your team can review, validate, and ship.
+
+## Marketing Site
+
+- [Home](https://antimetal.com/): Overview of the Antimetal platform
+- [Book a Demo](https://antimetal.com/book-a-demo): Schedule a demo with the Antimetal team
+- [Careers](https://antimetal.com/careers): Open roles at Antimetal
+- [Changelog](https://antimetal.com/changelog): Product updates and releases
+- [Events](https://antimetal.com/events): Antimetal events and appearances
+- [Government](https://antimetal.com/government): Antimetal for government and public sector
+
+## Integrations
+
+- [All integrations](https://antimetal.com/integrations): Browse and filter every tool Antimetal connects to
+
+### Monitoring & Observability
+
+- [Amplitude](https://antimetal.com/integrations/amplitude): Product analytics for events, funnels, cohorts, and user behavior.
+- [Axiom](https://antimetal.com/integrations/axiom): Observability and logging with APL queries, datasets, and monitors.
+- [BetterStack](https://antimetal.com/integrations/betterstack): Uptime monitoring and incident management.
+- [BugSnag](https://antimetal.com/integrations/bugsnag): Error monitoring for errors, releases, builds, and performance data.
+- [Chronosphere](https://antimetal.com/integrations/chronosphere): Prometheus metrics, logs, traces, dashboards, and SLOs.
+- [Coralogix](https://antimetal.com/integrations/coralogix): Observability for logs, traces, metrics, and real-user monitoring.
+- [Datadog](https://antimetal.com/integrations/datadog): Correlate metrics, logs, and traces.
+- [Dynatrace](https://antimetal.com/integrations/dynatrace): Full-stack observability with DQL queries and problem analysis.
+- [Grafana](https://antimetal.com/integrations/grafana): Dashboards, alerting, Prometheus, Loki, OnCall, and incidents.
+- [groundcover](https://antimetal.com/integrations/groundcover): Query logs, traces, metrics, events, and Kubernetes resources.
+- [Honeycomb](https://antimetal.com/integrations/honeycomb): Distributed tracing, telemetry queries, alerts, and dashboards.
+- [Instana](https://antimetal.com/integrations/instana): Application performance monitoring for infrastructure and events.
+- [Kloudfuse](https://antimetal.com/integrations/kloudfuse): Unified observability for metrics, logs, traces, and events.
+- [Logfire](https://antimetal.com/integrations/logfire): OpenTelemetry-native observability for traces, logs, and metrics.
+- [Logz.io](https://antimetal.com/integrations/logz-io): ELK-based observability for logs, metrics, and tracing.
+- [Loki](https://antimetal.com/integrations/loki): Search logs to understand what failed.
+- [Mezmo](https://antimetal.com/integrations/mezmo): Log analysis, root-cause detection, and pipeline management.
+- [New Relic](https://antimetal.com/integrations/new-relic): Unified observability for logs, metrics, traces, and synthetics.
+- [PostHog](https://antimetal.com/integrations/posthog): Product analytics, error tracking, logs, and session replay.
+- [Prometheus](https://antimetal.com/integrations/prometheus): Use metrics to explain system behavior.
+- [Sentry](https://antimetal.com/integrations/sentry): Track application errors to their source.
+- [Splunk](https://antimetal.com/integrations/splunk): Run SPL queries and investigate security and operational events.
+- [Tempo](https://antimetal.com/integrations/tempo): Follow traces across services.
+- [VictoriaLogs](https://antimetal.com/integrations/victoria-logs): Explore logs with LogsQL, fields, streams, and stats.
+- [VictoriaMetrics](https://antimetal.com/integrations/victoria-metrics): Prometheus-compatible metrics, alerting, and anomaly detection.
+- [VictoriaMetrics Cloud](https://antimetal.com/integrations/victoria-metrics-cloud): Cloud metrics, alerting, and deployment management.
+
+### Cloud & Infrastructure
+
+- [Aiven](https://antimetal.com/integrations/aiven): Manage Aiven projects and open-source cloud data services.
+- [Argo CD](https://antimetal.com/integrations/argo-cd): Manage GitOps applications, syncs, and rollout status.
+- [Buildkite](https://antimetal.com/integrations/buildkite): CI/CD pipelines, builds, and deployment management.
+- [CircleCI](https://antimetal.com/integrations/circleci): Pipeline logs, flaky test detection, and config analysis.
+- [Cloudflare](https://antimetal.com/integrations/cloudflare): DNS, logs, analytics, and observability across Cloudflare.
+- [CloudWatch](https://antimetal.com/integrations/cloudwatch): Inspect AWS metrics, logs, and alarms.
+- [Confluent](https://antimetal.com/integrations/confluent): Manage Kafka topics, connectors, schemas, and Flink SQL.
+- [Google Cloud](https://antimetal.com/integrations/google-cloud): Connect Google Cloud logging, monitoring, and tracing.
+- [Microsoft Azure](https://antimetal.com/integrations/azure): Inspect Azure resources, Monitor logs, and metrics.
+- [Neon](https://antimetal.com/integrations/neon): Serverless Postgres with branching, queries, and schema inspection.
+- [Render](https://antimetal.com/integrations/render): Cloud services, logs, metrics, and databases.
+
+### Databases
+
+- [BigQuery](https://antimetal.com/integrations/bigquery): Run read-only SQL and inspect BigQuery datasets and tables.
+- [ClickHouse](https://antimetal.com/integrations/clickhouse): Run read-only SQL against ClickHouse databases and tables.
+- [Elasticsearch](https://antimetal.com/integrations/elasticsearch): Search, query, and analyze Elasticsearch indices and clusters.
+- [MongoDB Atlas](https://antimetal.com/integrations/mongodb-atlas): Query collections, inspect schemas, and run aggregations.
+- [OpenSearch](https://antimetal.com/integrations/opensearch): Search, analytics, and log exploration for OpenSearch clusters.
+- [PlanetScale](https://antimetal.com/integrations/planetscale): Query and manage MySQL with short-lived credentials.
+- [Snowflake](https://antimetal.com/integrations/snowflake): Data warehouse queries, schema exploration, and Cortex AI.
+- [Supabase](https://antimetal.com/integrations/supabase): Query databases, run migrations, and inspect auth and storage.
+- [Upstash](https://antimetal.com/integrations/upstash): Manage serverless Redis and Kafka resources and usage.
+
+### Incident Management
+
+- [iLert](https://antimetal.com/integrations/ilert): Alerting, on-call, escalations, and status pages.
+- [Incident.io](https://antimetal.com/integrations/incident-io): Pull incident timelines into investigations.
+- [OneUptime](https://antimetal.com/integrations/oneuptime): Monitoring for incidents, alerts, status pages, and on-call.
+- [PagerDuty](https://antimetal.com/integrations/pagerduty): Ingest incidents and alerts from PagerDuty.
+- [Rootly](https://antimetal.com/integrations/rootly): Incident management and response.
+- [ServiceNow](https://antimetal.com/integrations/servicenow): ITSM incidents, changes, and CMDB records.
+
+### CI/CD
+
+- [Azure DevOps](https://antimetal.com/integrations/azure-devops): Inspect repos, pull requests, work items, and pipelines.
+- [JFrog](https://antimetal.com/integrations/jfrog): Inspect Artifactory repositories, builds, and Xray vulnerabilities.
+- [TeamCity](https://antimetal.com/integrations/teamcity): Inspect projects, build configurations, builds, and logs.
+
+### Project Management
+
+- [Asana](https://antimetal.com/integrations/asana): Task management, project tracking, and collaboration.
+- [Atlassian](https://antimetal.com/integrations/atlassian): Manage Jira issues and access Confluence knowledge.
+- [ClickUp](https://antimetal.com/integrations/clickup): Project management for tasks, docs, and workspaces.
+- [Linear](https://antimetal.com/integrations/linear): Issue tracking and project management.
+- [Shortcut](https://antimetal.com/integrations/shortcut): Manage stories, epics, iterations, and objectives.
+
+### Security
+
+- [CrowdStrike](https://antimetal.com/integrations/crowdstrike): Endpoint detections, incidents, hosts, and threat intelligence.
+
+### Source Control
+
+- [GitHub](https://antimetal.com/integrations/github): Search your codebase for the root cause.
+
+### Chat
+
+- [Slack](https://antimetal.com/integrations/slack): Start investigations and triage alerts in Slack.
+
+### Developer Tools
+
+- [Braintrust](https://antimetal.com/integrations/braintrust): Query AI experiments, datasets, logs, prompts, and docs.
+- [Cortex](https://antimetal.com/integrations/cortex): Query service catalog, scorecards, ownership, and on-call data.
+- [Customer.io](https://antimetal.com/integrations/customer-io): Manage campaigns, messages, analytics, and customer data.
+- [Fireflies](https://antimetal.com/integrations/fireflies): Retrieve meeting transcripts, summaries, and action items.
+- [Glean](https://antimetal.com/integrations/glean): Enterprise search across company knowledge and tools.
+- [Intercom](https://antimetal.com/integrations/intercom): Search conversations, contacts, companies, and help articles.
+- [Jam](https://antimetal.com/integrations/jam): Bring recordings, console logs, and network requests into context.
+- [LaunchDarkly](https://antimetal.com/integrations/launchdarkly): Feature flag management for flags, environments, and AI configs.
+- [Notion](https://antimetal.com/integrations/notion): Workspace knowledge for pages, databases, and comments.
+- [OpsLevel](https://antimetal.com/integrations/opslevel): Service catalog, scorecards, teams, and dependencies.
+- [Statsig](https://antimetal.com/integrations/statsig): Feature flags, experiments, rollouts, and product analytics.
+- [Temporal](https://antimetal.com/integrations/temporal): Inspect workflows, executions, histories, queries, and schedules.
+- [Trigger.dev](https://antimetal.com/integrations/trigger-dev): Monitor background jobs and task runs.
+- [Vercel](https://antimetal.com/integrations/vercel): Tie deploys to runtime failures.
+- [Zendesk](https://antimetal.com/integrations/zendesk): Customer support tickets and comments.
+
+### Other
+
+- [Kombo](https://antimetal.com/integrations/kombo): Surface ATS integration health and candidate application state.
+
+## Blog
+
+- [Compressing Production Telemetry for Agents](https://antimetal.com/blog/scaling-understanding)
+- [We used Antimetal to resolve 76% of our production errors in one day](https://antimetal.com/blog/clearing-76-of-our-production-errors-in-one-day)
+- [How we automated technical implementation](https://antimetal.com/blog/how-we-automated-technical-implementation)
+- [Introducing Antimetal for Coding Agents](https://antimetal.com/blog/introducing-antimetal-for-coding-agents)
+- [Building a Unified Model of Software Systems](https://antimetal.com/blog/building-a-unified-model-of-software-systems)
+- [The Future of Infrastructure is Invisible](https://antimetal.com/blog/the-future-of-infrastructure-is-invisible)
+
+## Docs
+
+- [Overview](https://docs.antimetal.com/): What Antimetal is and how to get started
+- [Quick Start](https://docs.antimetal.com/quick-start): Get up and running with Antimetal
+- [Integrations](https://docs.antimetal.com/integrations/overview): Connect your monitoring, observability, and infrastructure tools
+- [Issue Lifecycle](https://docs.antimetal.com/product/issue-lifecycle): How issues move from alert to root cause to resolution
+- [Fixes](https://docs.antimetal.com/product/fixes): Review and ship AI-generated fixes and PRs
+- [Skills / MCP](https://docs.antimetal.com/product/skills): Use Antimetal from Claude Code, Cursor, VS Code, and other AI tools
+- [MCP Setup](https://docs.antimetal.com/connect): Connect to Antimetal's MCP server
+- [Security](https://docs.antimetal.com/admin/security): SOC 2 Type II certified. How Antimetal handles security, privacy, and data access
+
+## Legal
+
+- [Privacy Policy](https://antimetal.com/privacy)
+- [Terms of Service](https://antimetal.com/terms)

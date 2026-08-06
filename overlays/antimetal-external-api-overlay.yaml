@@ -1,0 +1,75 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the Antimetal External API
+  version: 1.0.0
+x-generated: '2026-08-06'
+x-method: generated
+x-source: openapi/antimetal-external-api-openapi.json
+extends: openapi/antimetal-external-api-openapi.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-profile: https://apis.io/provider/antimetal
+    x-apievangelist-artifacts:
+      conventions: conventions/antimetal-conventions.yml
+      errors: errors/antimetal-problem-types.yml
+      data-model: data-model/antimetal-data-model.yml
+      authentication: authentication/antimetal-authentication.yml
+      lifecycle: lifecycle/antimetal-lifecycle.yml
+      mcp: mcp/antimetal-mcp.yml
+      tool-crosswalk: mcp/antimetal-tool-crosswalk.yml
+    x-discovery-note: The published /api-reference/openapi.json on the docs host is
+      the Mintlify "OpenAPI Plant Store" sample, not this API. The real spec is reachable
+      only via https://antimetal.com/.well-known/api-catalog, which anchors bff.antimetal.com/api/v2
+      and points at /assets/openapi.mintlify.json.
+- target: $.info
+  update:
+    contact:
+      name: Antimetal Support
+      email: support@antimetal.com
+      url: https://docs.antimetal.com/
+- target: $
+  update:
+    tags:
+    - name: Issues
+      description: Create, list, read, update and delete issues, and read their asynchronous
+        investigation results.
+    - name: Artifacts
+      description: Batch retrieval of evidential artifacts — metrics, traces, logs,
+        files, events and topology — gathered from connected observability providers.
+    - name: Query
+      description: Natural-language questions to the Antimetal agent, optionally streamed
+        over Server-Sent Events.
+- target: $.paths['/issues'].get
+  update:
+    x-pagination:
+      style: cursor
+      request: [limit, startingAfter, endingBefore]
+      response: [has_more, after, before]
+- target: $.paths['/query'].post
+  update:
+    x-streaming:
+      supported: true
+      mechanism: server-sent-events
+      request_flag: stream
+      accept: text/event-stream
+      chunk_schema: QueryChunkDto
+- target: $.paths['/issues'].post
+  update:
+    x-async:
+      pattern: poll
+      poll_operation: getIssue
+      note: Investigation runs asynchronously after creation; poll GET /issues/{id}
+        for status. No callback or webhook is offered.
+    x-idempotency:
+      supported: false
+      note: No Idempotency-Key is documented; retrying this operation creates duplicate
+        issues.
+- target: $.paths['/issues/by_number/{number}'].get
+  update:
+    x-apievangelist-gap: 'Documents only 404 and 500, unlike every sibling operation
+      which documents 400/401/403/404/429/500. Its 500 response also declares no content
+      schema, so the ErrorResponseDto envelope is untyped there.'
+- target: $.components.securitySchemes.bearer
+  update:
+    x-key-management: https://overlook.antimetal.com/settings/api-keys

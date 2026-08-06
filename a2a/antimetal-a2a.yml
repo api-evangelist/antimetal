@@ -1,0 +1,37 @@
+generated: '2026-08-06'
+method: probed
+source: https://docs.antimetal.com/.well-known/agent-card.json
+discovery:
+  path: /.well-known/agent-card.json
+  canonical: true
+  host: docs.antimetal.com
+  note: Only the documentation host serves a card. antimetal.com, mcp.antimetal.com
+    and bff.antimetal.com all return 404 at both the canonical and the legacy /.well-known/agent.json
+    path; api.antimetal.com returns 403.
+conformance:
+  spec: A2A 1.0.0
+  grade: flavored
+  protocol_version: '0.3'
+  preferred_transport: HTTP+JSON
+  hard_checks:
+    capabilities_is_object: true
+    protocol_version_present: true
+    skills_is_array: true
+  deviations:
+  - supportedInterfaces-instead-of-additionalInterfaces
+  - protocol-version-not-full-semver
+  - no-description-field
+card:
+  name: Antimetal Docs
+  url: https://docs.antimetal.com/
+  version: 1.0.0
+  skills: 1
+  file: antimetal-agent-card.json
+  note: The card describes the documentation surface, not the product agent. Its single
+    skill points at https://docs.antimetal.com/.well-known/agent-skills/antimetal/skill.md,
+    which is captured verbatim in skills/antimetal-published-skill.md.
+x-evidence:
+  fetched: '2026-08-06'
+  url: https://docs.antimetal.com/.well-known/agent-card.json
+  http_status: 200
+  content_type: application/json

@@ -1,0 +1,58 @@
+generated: '2026-08-06'
+method: searched
+source: npm registry, Terraform Registry, buf.build, github.com/antimetal
+packages:
+- language: typescript
+  registry: npm
+  name: '@antimetal/sdk'
+  url: https://www.npmjs.com/package/@antimetal/sdk
+  install: npm install @antimetal/sdk
+  version: 0.2.2
+  license: Apache-2.0
+  repository: https://github.com/antimetal/antimetal-node
+  official: true
+  note: 'Registry description: "The official TypeScript library for the Antimetal API".'
+- language: hcl
+  registry: terraform-registry
+  name: antimetal/antimetal
+  kind: provider
+  url: https://registry.terraform.io/providers/antimetal/antimetal
+  version: 0.0.2
+  repository: https://github.com/antimetal/terraform-provider-antimetal
+  official: true
+  tier: community
+- language: hcl
+  registry: terraform-registry
+  name: antimetal/antimetal/aws
+  kind: module
+  url: https://registry.terraform.io/modules/antimetal/antimetal/aws
+  version: 1.0.2
+  repository: https://github.com/antimetal/terraform-aws-antimetal
+  official: true
+- language: protobuf
+  registry: buf.build
+  name: antimetal/apis
+  url: https://buf.build/antimetal/apis
+  repository: https://github.com/antimetal/apis
+  official: true
+  note: Buf module for the public agent/resource protobuf definitions captured in grpc/.
+- language: go
+  registry: pkg.go.dev
+  name: github.com/antimetal/apis
+  url: https://pkg.go.dev/github.com/antimetal/apis
+  install: go get github.com/antimetal/apis
+  official: true
+- language: yaml
+  registry: helm
+  name: antimetal helm charts
+  url: https://github.com/antimetal/helm-charts
+  repository: https://github.com/antimetal/helm-charts
+  official: true
+  note: Charts for deploying the Antimetal system agent into Kubernetes.
+excluded:
+- registry: pypi
+  name: antimetal
+  url: https://pypi.org/project/antimetal/
+  reason: Returns 200 but is authored by an unrelated individual (Ryan Eloff), has no
+    Antimetal project URLs and no summary. Not first-party — recorded here so a later
+    run does not re-add it.

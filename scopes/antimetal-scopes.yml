@@ -1,0 +1,48 @@
+generated: '2026-08-06'
+method: searched
+source: https://mcp.antimetal.com/.well-known/oauth-authorization-server
+docs: https://docs.antimetal.com/connect
+applies_to: mcp/antimetal-mcp.yml
+note: The Antimetal External REST API uses bearer API keys only and declares no oauth2
+  security scheme, so derive-oauth-scopes.py found nothing in openapi/. The OAuth surface
+  belongs to the remote MCP server, whose RFC 8414 authorization-server metadata is
+  anonymously readable and is the source below.
+schemes:
+- name: mcp-oauth2
+  source: https://mcp.antimetal.com/.well-known/oauth-authorization-server
+  issuer: https://antimetal.authkit.app
+  provider: WorkOS AuthKit
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://antimetal.authkit.app/oauth2/authorize
+    tokenUrl: https://antimetal.authkit.app/oauth2/token
+    pkce: [S256]
+  - flow: deviceCode
+    deviceAuthorizationUrl: https://antimetal.authkit.app/oauth2/device_authorization
+    tokenUrl: https://antimetal.authkit.app/oauth2/token
+  - flow: refreshToken
+    tokenUrl: https://antimetal.authkit.app/oauth2/token
+  endpoints:
+    jwks_uri: https://antimetal.authkit.app/oauth2/jwks
+    introspection_endpoint: https://antimetal.authkit.app/oauth2/introspection
+    registration_endpoint: https://antimetal.authkit.app/oauth2/register
+  token_endpoint_auth_methods_supported: [none, client_secret_post, client_secret_basic]
+  protected_resource: https://mcp.antimetal.com
+scopes:
+- scope: openid
+  description: OpenID Connect authentication; issues an ID token identifying the user.
+  flows: [authorizationCode, deviceCode]
+- scope: profile
+  description: Basic profile claims for the authenticated user.
+  flows: [authorizationCode, deviceCode]
+- scope: email
+  description: Email address claim for the authenticated user.
+  flows: [authorizationCode, deviceCode]
+- scope: offline_access
+  description: Issues a refresh token so the client can act after the access token
+    expires.
+  flows: [authorizationCode, deviceCode]
+gaps:
+- The advertised scopes are the standard OIDC identity set only. Antimetal publishes
+  no resource-level or tool-level scopes (no read/write separation across issues, artifacts
+  or query), so an MCP token is not scoped to a subset of the tool surface.

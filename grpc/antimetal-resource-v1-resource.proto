@@ -1,0 +1,76 @@
+// Antimetal API definitions
+// Copyright Antimetal, Inc. All rights reserved.
+//
+// Use of this source code and APIs are governed by a source available license that can be found in
+// the LICENSE file or at:
+// https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt
+
+syntax = "proto3";
+
+package resource.v1;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+import "resource/v1/namespace.proto";
+import "resource/v1/object.proto";
+import "resource/v1/provider.proto";
+
+// ResourceMeta is metadata that all resources have.
+message ResourceMeta {
+  // Resource ID
+  bytes id = 1;
+  // The provider that serves the resource.
+  Provider provider = 2;
+  // Provider resource ID
+  string provider_id = 3;
+  // The provider account that owns the resource
+  // Deprecated: use namespace instead.
+  ProviderAccount account = 4 [deprecated = true];
+  // Provider service the resource belongs to
+  string service = 5;
+  // Resource name
+  string name = 6;
+  // List of resource tags
+  repeated Tag tags = 7;
+  // Provider resource group in which resource is contained.
+  string provider_group = 8;
+  // Region in which the resource is located.
+  string region = 9;
+  // Zone in which the resource is located.
+  string zone = 10;
+  // Creation time of the resource
+  google.protobuf.Timestamp created_at = 11;
+  // Time when the resource was last updated
+  google.protobuf.Timestamp updated_at = 12;
+  // Deletion time of the resource
+  google.protobuf.Timestamp deleted_at = 13;
+  // The namespace scope of the resource.
+  Namespace namespace = 14;
+}
+
+// Tag is a key value pair that helps identify or describe a resource.
+message Tag {
+  string key = 1;
+  string value = 2;
+}
+
+// Resource is a typed node on the Infrastructure graph and represents an
+// instance of a cloud resource.
+message Resource {
+  // Describes the resource type.
+  TypeDescriptor type = 1;
+  // Contains resource metadata.
+  ResourceMeta metadata = 2;
+  // The resource spec. The type of this field is determined by the type field.
+  google.protobuf.Any spec = 3;
+}
+
+// ResourceRef unambiguously identifies a resource.
+message ResourceRef {
+  // Resource type URL.
+  string type_url = 1;
+  // Resource name
+  string name = 2;
+  // The namespace scope of the resource.
+  Namespace namespace = 3;
+}

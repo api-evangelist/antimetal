@@ -1,0 +1,93 @@
+generated: '2026-08-06'
+method: searched
+source: https://docs.antimetal.com/admin/security + probed /.well-known/* + openapi/antimetal-external-api-openapi.json
+standards:
+- id: openapi-3.0
+  conforms: true
+  evidence: openapi/antimetal-external-api-openapi.json declares openapi 3.0.0 with
+    9 operations, all with operationIds, summaries, tags and typed responses.
+- id: oauth2
+  conforms: true
+  evidence: mcp.antimetal.com/.well-known/oauth-authorization-server (200) advertises
+    authorization_code + refresh_token + device_code grants with S256 PKCE.
+- id: oidc
+  conforms: true
+  evidence: The same authorization-server metadata lists scopes_supported including
+    openid and profile, and a jwks_uri, via WorkOS AuthKit at antimetal.authkit.app.
+- id: rfc8414-oauth-authorization-server-metadata
+  conforms: true
+  evidence: https://mcp.antimetal.com/.well-known/oauth-authorization-server returned
+    200 with valid metadata.
+- id: rfc9728-oauth-protected-resource-metadata
+  conforms: true
+  evidence: https://mcp.antimetal.com/.well-known/oauth-protected-resource returned
+    200 with resource + authorization_servers + bearer_methods_supported.
+- id: rfc7591-dynamic-client-registration
+  conforms: true
+  evidence: registration_endpoint present in the authorization-server metadata; docs
+    state most MCP clients complete OAuth automatically on first connect.
+- id: rfc9727-api-catalog
+  conforms: true
+  evidence: https://antimetal.com/.well-known/api-catalog returned 200 with content-type
+    application/linkset+json profiled to RFC 9727, anchoring the API and pointing at
+    the OpenAPI.
+- id: model-context-protocol
+  conforms: true
+  evidence: Remote MCP server at https://mcp.antimetal.com, documented for Claude Code,
+    Claude Desktop, Cursor, VS Code, Windsurf and Codex.
+- id: a2a-agent-card
+  conforms: partial
+  evidence: docs.antimetal.com/.well-known/agent-card.json returned 200 with a valid
+    JSON AgentCard, but graded `flavored` — see a2a/antimetal-a2a.yml.
+- id: llmstxt
+  conforms: true
+  evidence: llms.txt served 200 on both antimetal.com and docs.antimetal.com, plus
+    llms-full.txt on the docs host.
+- id: content-signal
+  conforms: true
+  evidence: 'robots.txt publishes "Content-Signal: ai-train=no, search=yes, ai-input=yes"
+    per user-agent for GPTBot, ClaudeBot, Google-Extended and PerplexityBot.'
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors use a custom application/json envelope (type/message/request_id/details),
+    not application/problem+json.
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: https://antimetal.com/.well-known/security.txt returned 404.
+- id: rfc8594-sunset-header
+  conforms: false
+  evidence: No Sunset/Deprecation header support or deprecation policy documented.
+- id: asyncapi
+  conforms: false
+  evidence: No event/webhook surface published. /asyncapi.yaml returned 404 on the
+    docs and API hosts. Not applicable — Antimetal's async pattern is client polling
+    plus SSE on POST /query.
+- id: protobuf
+  conforms: true
+  evidence: 16 public .proto definitions published at github.com/antimetal/apis and
+    as a buf module; captured verbatim in grpc/.
+compliance:
+  published: true
+  source: https://docs.antimetal.com/admin/security
+  certifications:
+  - name: SOC 2 Type II
+    status: certified
+    evidence: 'Docs security page: "Antimetal is SOC 2 Type II certified. Our controls
+      and procedures have been independently audited and validated." Report available
+      on request from security@antimetal.com.'
+  - name: HIPAA
+    status: compliant
+    evidence: 'Docs security page: "Antimetal is HIPAA compliant. Protected health
+      information is handled in accordance with HIPAA requirements."'
+  controls_published:
+  - TLS 1.2+ in transit, AES-256 at rest
+  - Credentials stored in AWS KMS
+  - Least-privilege IAM, infrastructure provisioned via IaC
+  - MFA and logged access to production
+  - Employee background checks and regular security training
+  - MDM-enforced endpoint protection
+  - Regular penetration testing and third-party audits
+  - Per-tenant data isolation with no cross-customer contamination
+  - Third-party AI providers (Anthropic, OpenAI, Google) configured with no-data-retention;
+    customer data never used to train shared models
+  trust_center: https://trust.antimetal.com/

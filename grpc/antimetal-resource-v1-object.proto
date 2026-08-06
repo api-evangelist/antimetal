@@ -1,0 +1,55 @@
+// Antimetal API definitions
+// Copyright Antimetal, Inc. All rights reserved.
+//
+// Use of this source code and APIs are governed by a source available license that can be found in
+// the LICENSE file or at:
+// https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt
+
+syntax = "proto3";
+
+package resource.v1;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/duration.proto";
+
+// TypeDescriptor describes an object type.
+message TypeDescriptor {
+  // The object kind full url (e.g. resource.v1.Resource,
+  // resource.v1.Relationship). Kind represetnts the graph entity type. It
+  // denotes whether the object is a "Resource" (graph node) or a "Relationship"
+  // (graph edge).
+  string kind = 1;
+  // The object type. This should be the full url of the protobuf type
+  // of the object schema.
+  string type = 4;
+}
+
+// Object is a resource or relationship object.
+message Object {
+  // Describes the object type.
+  TypeDescriptor type = 1;
+  // The Resource or Relationship object
+  google.protobuf.Any object = 2;
+  // Time-to-live value for the object. For each object, a timer is started.
+  // The timer is reset each time the object is received with a new TTL.
+  // If the object is received with no TTL set, the timer is removed for the
+  // object. Upon expiration of the timer, the object is considered deleted.
+  //
+  // The TTL can be refreshed or changed by sending a Delta containing an Object
+  // with the same name that doesn't change the object version. In this case the
+  // object field does not need to be populated, which allows for light-weight
+  // "heartbeat" updates to keep an object with a TTL alive.
+  //
+  // The TTL feature is meant to support cleaning up objects in the event of
+  // a systems-agent removal/failure. For example, if the Kubernetes cluster
+  // where the systems agent is deployed in is spun down, then all the resources
+  // from the cluster will be deleted from the graph once the TTL expires.
+  google.protobuf.Duration ttl = 3;
+  // The delta version of the Delta change set that the object is a part of.
+  // It is used to keep track of the state of individual objects. The version is
+  // set and maintained by the client sending Deltas.
+  //
+  // NOTE: the version string should only be used for comparisions!
+  // It is not guaranteed that the version string is monotonically increasing.
+  string delta_version = 4;
+}

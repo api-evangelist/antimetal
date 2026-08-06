@@ -1,0 +1,82 @@
+generated: '2026-08-06'
+method: derived
+source: openapi/antimetal-external-api-openapi.json
+api: Antimetal External API
+entities:
+- name: Issue
+  schemas: [IssueDto, IssueSummaryDto, CreateIssueDto, CreateIssueResponseDto, UpdateIssueStatusDto]
+  identifiers:
+  - field: uuid
+    kind: uuid
+    note: Canonical id used on /issues/{id}.
+  - field: number
+    kind: sequential-integer
+    note: Human-facing issue number; addressable at /issues/by_number/{number}.
+  fields: [uuid, number, title, description, severity, status, environment, triggeredAt,
+    createdAt, updatedAt, seedCount, seeds, latestVersion, versions]
+  operations: [createIssue, listIssues, getIssue, getIssueByNumber, updateIssueStatus,
+    deleteIssue]
+- name: IssueResults
+  schemas: [IssueResultsDto]
+  fields: [sessionUuid, rootCause, causalTree, causalTreeV2, remediation, timeline]
+  operations: [getIssueResults]
+  note: The investigation output for an issue — root cause, causal tree, remediation
+    plan and timeline. Versioned; GET /issues/{id}/results accepts a `version` query
+    parameter.
+- name: Artifact
+  schemas: [MetricArtifactDto, TraceArtifactDto, LogArtifactDto, FileArtifactDto, EventArtifactDto,
+    TopologyArtifactDto]
+  identifiers:
+  - field: id
+    kind: opaque-string
+  fields: [id, provider, providerUrl, summary, createdAt, updatedAt, type, data]
+  operations: [batchGetArtifacts]
+  note: Polymorphic evidential artifact — six typed variants discriminated by `type`,
+    all sharing the same envelope. `provider` names the upstream integration (Datadog,
+    Grafana, CloudWatch, Sentry, ...) and `providerUrl` deep-links back to it.
+- name: Conversation
+  schemas: [QueryRequestDto, QueryResponseDto, QueryChunkDto]
+  identifiers:
+  - field: conversation_id
+    kind: opaque-string
+  operations: [query]
+  note: Stateful natural-language conversation with the Antimetal agent; the caller
+    threads conversation_id across requests.
+- name: Error
+  schemas: [ErrorResponseDto]
+  fields: [type, message, request_id, details]
+  note: Uniform error envelope; see errors/antimetal-problem-types.yml.
+relationships:
+- from: Issue
+  to: IssueResults
+  kind: has_one
+  via: /issues/{id}/results
+  note: Per issue version — latestVersion/versions on IssueDto select which results
+    document is returned.
+- from: IssueResults
+  to: Artifact
+  kind: has_many
+  via: causalTree / timeline reference artifact ids resolved through GET /artifacts
+  confidence: medium
+- from: Conversation
+  to: Artifact
+  kind: has_many
+  via: QueryResponseDto.artifacts and QueryChunkDto.artifact
+- from: Issue
+  to: Issue
+  kind: has_many
+  via: seeds
+  note: seedCount/seeds model the originating signals folded into an issue.
+- from: Artifact
+  to: Provider
+  kind: belongs_to
+  via: provider / providerUrl
+  note: Provider is not a first-class API resource — it is a string naming the upstream
+    integration.
+graph_notes:
+- The public REST surface is deliberately narrow — one write-bearing aggregate (Issue),
+  one derived read model (IssueResults), one polymorphic evidence type (Artifact),
+  and one conversational endpoint (Query).
+- The far richer resource graph lives in the protobuf definitions in grpc/ (Kubernetes
+  clusters and relationships, network, hardware, Linux runtime, and a generic resource/object/relationship
+  model). Those are the agent's ingest contract, not the external REST API.

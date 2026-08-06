@@ -1,0 +1,45 @@
+generated: '2026-08-06'
+method: searched
+source: https://antimetal.com/changelog
+http_status: 200
+scheme: dated-product-changelog
+note: The changelog is a dated product-update feed, not an API version log. It is rendered
+  client-side (the raw HTML carries no dates), so entries below were read from the
+  rendered page. No RSS/Atom feed and no per-entry permalink was found — /changelog/<slug>
+  returns 404. This is a recent window, not full history.
+api_version_reference:
+  spec_version: '2026-03-17'
+  path_version: v2
+  note: The Antimetal External API's own version is the info.version date stamp in
+    openapi/antimetal-external-api-openapi.json; the product changelog does not track
+    API-breaking changes separately.
+entries:
+- date: '2026-05-19'
+  title: CLI is here
+  breaking: false
+  highlights:
+  - Run investigations, inspect incidents and review agent work from the terminal
+  - Live incident watch mode
+  - Deploy comparison
+  - Shareable investigation links
+- date: '2026-05-08'
+  title: Agent reviews for deploys
+  breaking: false
+  highlights:
+  - Deployments are evaluated against runtime context before production release
+  - Reviews examine recent incidents, service ownership and alert coverage
+  - Highlights probable blast radius and missing guardrails
+- date: '2026-04-26'
+  title: World model snapshots
+  breaking: false
+  highlights:
+  - Capture production state at a specific moment in time
+  - Snapshots record topology, traffic patterns, active alerts, deploy state and agent-identified
+    relationships
+- date: '2026-04-12'
+  title: Slack approvals
+  breaking: false
+  highlights:
+  - Agents present proposed production actions in Slack for team review
+  - Approve, reject or request modifications without leaving incident channels
+  - Approval records maintained for audit trails

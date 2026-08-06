@@ -1,0 +1,19 @@
+// Antimetal API definitions
+// Copyright Antimetal, Inc. All rights reserved.
+//
+// Use of this source code and APIs are governed by a source available license that can be found in
+// the LICENSE file or at:
+// https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt
+
+syntax = "proto3";
+
+package antimetal.types.v1;
+
+// TypeDescriptor describes an object type.
+message TypeDescriptor {
+  // kind type full url (e.g. resource.v1.Resource, resource.v1.Relationship, etc.).
+  // It represents the Kind for type.
+  string kind = 1;
+  // type should be the full url
+  string type = 2;
+}

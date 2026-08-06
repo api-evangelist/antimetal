@@ -1,0 +1,19 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://bff.antimetal.com/api/v2",
+      "service-desc": [
+        {
+          "href": "https://docs.antimetal.com/assets/openapi.mintlify.json",
+          "type": "application/json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://docs.antimetal.com/",
+          "type": "text/html"
+        }
+      ]
+    }
+  ]
+}

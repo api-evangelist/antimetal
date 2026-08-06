@@ -1,0 +1,52 @@
+generated: '2026-08-06'
+method: searched
+status: published
+source: https://docs.antimetal.com/connect
+server:
+  name: antimetal
+  transport: http
+  url: https://mcp.antimetal.com
+  docs: https://docs.antimetal.com/connect
+authentication:
+  methods:
+  - kind: oauth2
+    note: OAuth 2.1 with dynamic client registration; most modern MCP clients complete
+      this automatically on first connect.
+    protected_resource_metadata: https://mcp.antimetal.com/.well-known/oauth-protected-resource
+    authorization_server: https://antimetal.authkit.app
+    authorization_server_metadata: https://mcp.antimetal.com/.well-known/oauth-authorization-server
+    scopes_supported: [openid, profile, email, offline_access]
+  - kind: bearer
+    note: 'API key from https://overlook.antimetal.com/settings/api-keys presented
+      as the header "Authorization: Bearer <key>".'
+clients_documented: [Claude Code, Claude Desktop, Cursor, VS Code, Windsurf, Codex]
+tools:
+- name: search_issues
+  description: Search and list Antimetal issues.
+  source: skills/antimetal-investigate.md
+- name: investigate_issue
+  description: Kick off a root-cause investigation for an issue.
+  source: skills/antimetal-investigate.md
+- name: get_issue_report
+  description: Retrieve the investigation report for an issue, including root cause
+    and evidence.
+  source: skills/antimetal-investigate.md
+- name: get_issue_fixes
+  description: Retrieve the remediation plan for an issue, grouped into categories.
+  source: skills/antimetal-fix.md
+- name: get_artifact
+  description: Fetch an evidential artifact (metric, trace, log, file, event, topology)
+    by id.
+  source: skills/antimetal-investigate.md
+x-evidence:
+  fetched: '2026-08-06'
+  tools_list_probe:
+    url: https://mcp.antimetal.com
+    method: POST
+    body: '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'
+    http_status: 401
+    response: '{"error":"Authorization required. Use OAuth 2.1 or API key."}'
+  note: Live tools/list is auth-gated, so per-tool inputSchema could not be introspected
+    anonymously. The tool names and descriptions above are taken verbatim from Antimetal''s
+    own published Agent Skills (github.com/antimetal/skills), not guessed. Input schemas
+    require authenticated introspection.

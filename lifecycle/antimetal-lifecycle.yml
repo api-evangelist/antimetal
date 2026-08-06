@@ -1,0 +1,35 @@
+generated: '2026-08-06'
+method: searched
+source: https://docs.antimetal.com/ + openapi/antimetal-external-api-openapi.json
+versioning:
+  scheme: uri-path
+  current: v2
+  spec_version: '2026-03-17'
+  evidence: 'servers[0].url = https://bff.antimetal.com/api/v2; info.version = 2026-03-17'
+  policy_url: null
+  note: No published versioning policy page was found. The date-stamped info.version
+    alongside a /v2 path suggests a date-pinned scheme, but Antimetal does not document
+    it.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No deprecation policy, no RFC 8594 Sunset/Deprecation header support, and no
+    deprecated operations are documented. This is a genuine gap, not a probe failure.
+sla:
+  url: null
+  uptime_target: null
+status_page:
+  url: https://status.antimetal.com/
+  http_status: 200
+  platform: Instatus
+changelog:
+  url: https://antimetal.com/changelog
+  artifact: changelog/antimetal-changelog.yml
+deprecated_operations: []
+maturity:
+  api: public
+  evidence: OpenAPI info.description — "Public-facing API for external integrations
+    with Antimetal."
+  environments:
+  - production: https://bff.antimetal.com/api/v2
+  - dev: https://bff.dev.antimetal.com/api/v2

@@ -1,0 +1,24 @@
+generated: '2026-08-06'
+method: searched
+probe: true
+url: https://trust.antimetal.com/
+http_status: 200
+platform: Vanta
+platform_evidence: 'og:image resolves to https://app.vanta.com/doc?s=... and the page
+  references vanta.com'
+title: Antimetal Trust Center
+certifications:
+- SOC 2 Type II
+- HIPAA
+certifications_source: https://docs.antimetal.com/admin/security
+note: The trust center itself renders client-side, so the certification list above
+  is taken from Antimetal's own documentation security page rather than scraped from
+  the Vanta shell. Only the page's presence and platform were confirmed directly.
+evidence:
+- source: https://trust.antimetal.com/
+  http_status: 200
+  keywords: [trust center, vanta]
+- source: https://docs.antimetal.com/admin/security
+  http_status: 200
+  keywords: [soc 2 type ii, hipaa, penetration testing, aws kms, aes-256, mfa]
+contact: mailto:security@antimetal.com

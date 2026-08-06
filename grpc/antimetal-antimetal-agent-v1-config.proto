@@ -1,0 +1,34 @@
+// Antimetal API definitions
+// Copyright Antimetal, Inc. All rights reserved.
+//
+// Use of this source code and APIs are governed by a source available license that can be found in
+// the LICENSE file or at:
+// https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt
+
+syntax = "proto3";
+
+package antimetal.agent.v1;
+
+import "antimetal/types/v1/object.proto";
+
+// ConfigError represents an error that occurred during configuration processing.
+// This error type is used to indicate problems with configuration objects
+// such as validation failures, missing required fields, or invalid values.
+message ConfigError {
+  // config_ref is a reference to the configuration object that caused the error.
+  antimetal.types.v1.ObjectRef config_ref = 1;
+
+  // reason provides a human-readable explanation of what went wrong with the configuration.
+  string reason = 2;
+}
+
+// HostStatsCollectionConfig configures collection of host system statistics.
+// This configuration specifies which system collector to enable and its
+// collection parameters.
+message HostStatsCollectionConfig {
+  // collector specifies which system statistics collector to configure.
+  string collector = 1;
+
+  // interval specifies the collection interval in seconds if applicable
+  uint32 interval_seconds = 2;
+}
