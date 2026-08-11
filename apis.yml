@@ -38,42 +38,13 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 apis:
-- aid: antimetal:antimetal-external-api
-  name: Antimetal External API
-  description: Public-facing REST API for external integrations with Antimetal. Provides programmatic
-    access to issue creation and lifecycle management, asynchronous investigation results
-    including root-cause and remediation, batch retrieval of evidential artifacts (metrics,
-    traces, logs, files, events, topology), and a natural-language query endpoint that can
-    stream answers over Server-Sent Events. Bearer API-key auth, cursor pagination, and a
-    documented request_id error envelope.
-  humanURL: https://docs.antimetal.com/api-reference/issues/fetch-issues-for-an-organization
-  baseURL: https://bff.antimetal.com/api/v2
-  tags:
-  - Issues
-  - Artifacts
-  - Query
-  - Incident Management
-  - Observability
-  properties:
-  - type: OpenAPI
-    url: openapi/antimetal-external-api-openapi.json
-  - type: Overlay
-    url: overlays/antimetal-external-api-overlay.yaml
-  - type: Documentation
-    url: https://docs.antimetal.com/
-  - type: APIReference
-    url: https://docs.antimetal.com/api-reference/issues/fetch-issues-for-an-organization
-  - type: ErrorCatalog
-    url: errors/antimetal-problem-types.yml
-  - type: DataModel
-    url: data-model/antimetal-data-model.yml
 - aid: antimetal:antimetal-mcp-server
   name: Antimetal MCP Server
-  description: Remote Model Context Protocol server exposing Antimetal's investigation, root-cause
-    analysis and remediation capabilities to MCP-compatible clients such as Claude Code, Cursor,
-    VS Code, Windsurf and Codex. Supports OAuth 2.1 (WorkOS AuthKit, with dynamic client registration
-    and device authorization) or an API key presented as a bearer token. Anonymous tools/list
-    is rejected with 401.
+  description: >-
+    Remote Model Context Protocol server exposing Antimetal's investigation, root-cause analysis and remediation
+    capabilities to MCP-compatible clients such as Claude Code, Cursor, VS Code, Windsurf and Codex. Supports
+    OAuth 2.1 (WorkOS AuthKit, with dynamic client registration and device authorization) or an API key
+    presented as a bearer token. Anonymous tools/list is rejected with 401.
   humanURL: https://docs.antimetal.com/connect
   baseURL: https://mcp.antimetal.com
   tags:
@@ -89,11 +60,11 @@ apis:
     url: https://docs.antimetal.com/connect
 - aid: antimetal:antimetal-agent-apis
   name: Antimetal Agent APIs (Protobuf)
-  description: Public protobuf/Connect definitions for the Antimetal system agent — the component
-    that connects customer infrastructure to the Antimetal platform. Covers agent config and
-    instance, hardware and Linux runtime telemetry, Kubernetes cluster and relationship modelling,
-    network, and a generic resource/object graph with an intake service. Published as a buf
-    module.
+  description: >-
+    Public protobuf/Connect definitions for the Antimetal system agent — the component that connects customer
+    infrastructure to the Antimetal platform. Covers agent config and instance, hardware and Linux runtime
+    telemetry, Kubernetes cluster and relationship modelling, network, and a generic resource/object graph
+    with an intake service. Published as a buf module.
   humanURL: https://github.com/antimetal/apis
   baseURL: https://buf.build/antimetal/apis
   tags:
@@ -102,11 +73,67 @@ apis:
   - Kubernetes
   - Telemetry
   properties:
-  - type: Protobuf
-    url: grpc/antimetal-service-agent-v1-service.proto
   - type: SourceCode
     url: https://github.com/antimetal/apis
+- aid: antimetal:antimetal-artifacts-api
+  name: Antimetal Artifacts API
+  description: The Artifacts API from Antimetal — 1 operation(s) for artifacts.
+  humanURL: https://docs.antimetal.com/api-reference/issues/fetch-issues-for-an-organization
+  baseURL: https://bff.antimetal.com/api/v2
+  tags:
+  - Artifacts
+  properties:
+  - type: OpenAPI
+    url: openapi/antimetal-artifacts-api-openapi.yml
+  - type: Documentation
+    url: https://docs.antimetal.com/
+  - type: APIReference
+    url: https://docs.antimetal.com/api-reference/issues/fetch-issues-for-an-organization
+  - type: ErrorCatalog
+    url: errors/antimetal-problem-types.yml
+  - type: DataModel
+    url: data-model/antimetal-data-model.yml
+- aid: antimetal:antimetal-issues-api
+  name: Antimetal Issues API
+  description: The Issues API from Antimetal — 4 operation(s) for issues.
+  humanURL: https://docs.antimetal.com/api-reference/issues/fetch-issues-for-an-organization
+  baseURL: https://bff.antimetal.com/api/v2
+  tags:
+  - Issues
+  properties:
+  - type: OpenAPI
+    url: openapi/antimetal-issues-api-openapi.yml
+  - type: Documentation
+    url: https://docs.antimetal.com/
+  - type: APIReference
+    url: https://docs.antimetal.com/api-reference/issues/fetch-issues-for-an-organization
+  - type: ErrorCatalog
+    url: errors/antimetal-problem-types.yml
+  - type: DataModel
+    url: data-model/antimetal-data-model.yml
+- aid: antimetal:antimetal-query-api
+  name: Antimetal Query API
+  description: The Query API from Antimetal — 1 operation(s) for query.
+  humanURL: https://docs.antimetal.com/api-reference/issues/fetch-issues-for-an-organization
+  baseURL: https://bff.antimetal.com/api/v2
+  tags:
+  - Query
+  properties:
+  - type: OpenAPI
+    url: openapi/antimetal-query-api-openapi.yml
+  - type: Documentation
+    url: https://docs.antimetal.com/
+  - type: APIReference
+    url: https://docs.antimetal.com/api-reference/issues/fetch-issues-for-an-organization
+  - type: ErrorCatalog
+    url: errors/antimetal-problem-types.yml
+  - type: DataModel
+    url: data-model/antimetal-data-model.yml
 common:
+- type: Overlay
+  url: overlays/antimetal-external-api-overlay.yaml
+- type: IssueTracker
+  url: https://github.com/antimetal/apis/issues
 - type: AgenticAccess
   url: agentic-access/antimetal-agentic-access.yml
 - type: DomainSecurity
@@ -173,8 +200,6 @@ common:
   url: security/antimetal-trust-center.yml
 - type: OAuthScopes
   url: scopes/antimetal-scopes.yml
-- type: Protobuf
-  url: grpc/antimetal-service-agent-v1-service.proto
 - type: SourceCode
   url: https://github.com/antimetal
 x-enrichment:
