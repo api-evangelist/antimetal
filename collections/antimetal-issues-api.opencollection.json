@@ -1,0 +1,241 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Antimetal External Issues API",
+    "version": "2026-03-17"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Issues",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch issues for an organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bff.antimetal.com/api/v2/issues",
+            "headers": [
+              {
+                "name": "Antimetal-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return (1-100)"
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "Cursor for forward pagination (ID/UUID to start after)"
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query",
+                "description": "Cursor for backward pagination (ID/UUID to end before)"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by issue status"
+              },
+              {
+                "name": "environment",
+                "value": "",
+                "type": "query",
+                "description": "Filter by environment (exact match)"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search issues by title or description (case-insensitive substring match)"
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of issues for the authenticated organization"
+        },
+        {
+          "info": {
+            "name": "Create a new issue",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bff.antimetal.com/api/v2/issues",
+            "headers": [
+              {
+                "name": "Antimetal-Version",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new issue and optionally starts an automated investigation. The issue is created from the provided details, with a seed generated internally. Investigation runs asynchronously - poll GET /issues/{id} to check status."
+        },
+        {
+          "info": {
+            "name": "Fetch issue by number",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bff.antimetal.com/api/v2/issues/by_number/:number",
+            "headers": [
+              {
+                "name": "Antimetal-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "number",
+                "value": "",
+                "type": "path",
+                "description": "Issue number (organization-scoped)"
+              }
+            ]
+          },
+          "docs": "Lightweight endpoint to retrieve basic issue information by issue number"
+        },
+        {
+          "info": {
+            "name": "Fetch an issue by ID (UUID)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bff.antimetal.com/api/v2/issues/:id",
+            "headers": [
+              {
+                "name": "Antimetal-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "",
+                "type": "query",
+                "description": "Issue version (defaults to latest)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Issue unique identifier (UUID)"
+              }
+            ]
+          },
+          "docs": "Retrieves detailed information about a specific issue by its ID (UUID)"
+        },
+        {
+          "info": {
+            "name": "Update issue status by ID (UUID)",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://bff.antimetal.com/api/v2/issues/:id",
+            "headers": [
+              {
+                "name": "Antimetal-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Issue unique identifier (UUID)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the status of an existing issue by its ID (UUID)"
+        },
+        {
+          "info": {
+            "name": "Delete an issue",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bff.antimetal.com/api/v2/issues/:id",
+            "headers": [
+              {
+                "name": "Antimetal-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Issue unique identifier (UUID)"
+              }
+            ]
+          },
+          "docs": "Permanently deletes an issue and all associated data"
+        },
+        {
+          "info": {
+            "name": "Fetch investigation results by ID (UUID)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bff.antimetal.com/api/v2/issues/:id/results",
+            "headers": [
+              {
+                "name": "Antimetal-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "version",
+                "value": "",
+                "type": "query",
+                "description": "Issue version for workflow results (defaults to latest)"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Issue unique identifier (UUID)"
+              }
+            ]
+          },
+          "docs": "Retrieves detailed investigation results including root cause analysis and remediation steps"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

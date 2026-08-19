@@ -1,0 +1,3164 @@
+{
+  "item": [
+    {
+      "id": "e74ae8aa-c1e8-43a6-885c-f24bc380db40",
+      "name": "Issues",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ae87d3c0-1128-4789-a1b2-9d1f0c3b812c",
+          "name": "Create a new issue",
+          "request": {
+            "name": "Create a new issue",
+            "description": {
+              "content": "Creates a new issue and optionally starts an automated investigation. The issue is created from the provided details, with a seed generated internally. Investigation runs asynchronously - poll GET /issues/{id} to check status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "issues"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                "key": "Antimetal-Version",
+                "value": "2026-03-17"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"environment\": \"<string>\",\n  \"severity\": \"<string>\",\n  \"triggeredAt\": \"<dateTime>\",\n  \"context\": {\n    \"alertUrl\": \"<uri>\",\n    \"service\": \"<string>\",\n    \"traceId\": \"<string>\",\n    \"spanId\": \"<string>\",\n    \"errorType\": \"<string>\",\n    \"errorMessage\": \"<string>\",\n    \"host\": \"<string>\",\n    \"region\": \"<string>\",\n    \"version\": \"<string>\",\n    \"tags\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"metadata\": {\n      \"key_0\": {}\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d6cf73e2-c2f8-41d1-86da-732b804e3708",
+              "name": "Issue created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"environment\": \"<string>\",\n  \"severity\": \"<string>\",\n  \"triggeredAt\": \"<dateTime>\",\n  \"context\": {\n    \"alertUrl\": \"<uri>\",\n    \"service\": \"<string>\",\n    \"traceId\": \"<string>\",\n    \"spanId\": \"<string>\",\n    \"errorType\": \"<string>\",\n    \"errorMessage\": \"<string>\",\n    \"host\": \"<string>\",\n    \"region\": \"<string>\",\n    \"version\": \"<string>\",\n    \"tags\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"metadata\": {\n      \"key_0\": {}\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"uuid\": \"string\",\n  \"number\": 808433300946088,\n  \"status\": \"muted\",\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"severity\": \"low\",\n  \"createdAt\": \"0936-02-29T02:20Z\",\n  \"updatedAt\": \"5086-11-30T23:20Z\",\n  \"triggeredAt\": \"6668-02-29T09:38Z\",\n  \"latestVersion\": 7720727127219456,\n  \"environment\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8c86d880-5bbd-4769-8138-deaea64debdd",
+              "name": "Validation error or bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"environment\": \"<string>\",\n  \"severity\": \"<string>\",\n  \"triggeredAt\": \"<dateTime>\",\n  \"context\": {\n    \"alertUrl\": \"<uri>\",\n    \"service\": \"<string>\",\n    \"traceId\": \"<string>\",\n    \"spanId\": \"<string>\",\n    \"errorType\": \"<string>\",\n    \"errorMessage\": \"<string>\",\n    \"host\": \"<string>\",\n    \"region\": \"<string>\",\n    \"version\": \"<string>\",\n    \"tags\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"metadata\": {\n      \"key_0\": {}\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"api_error\",\n  \"message\": \"string\",\n  \"request_id\": \"string\",\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9dda03ca-f065-47bc-95b8-385dff24e2b5",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"environment\": \"<string>\",\n  \"severity\": \"<string>\",\n  \"triggeredAt\": \"<dateTime>\",\n  \"context\": {\n    \"alertUrl\": \"<uri>\",\n    \"service\": \"<string>\",\n    \"traceId\": \"<string>\",\n    \"spanId\": \"<string>\",\n    \"errorType\": \"<string>\",\n    \"errorMessage\": \"<string>\",\n    \"host\": \"<string>\",\n    \"region\": \"<string>\",\n    \"version\": \"<string>\",\n    \"tags\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"metadata\": {\n      \"key_0\": {}\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"api_error\",\n  \"message\": \"string\",\n  \"request_id\": \"string\",\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4f1151ad-675b-4186-b10c-fbdfa945409a",
+              "name": "Insufficient permissions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"environment\": \"<string>\",\n  \"severity\": \"<string>\",\n  \"triggeredAt\": \"<dateTime>\",\n  \"context\": {\n    \"alertUrl\": \"<uri>\",\n    \"service\": \"<string>\",\n    \"traceId\": \"<string>\",\n    \"spanId\": \"<string>\",\n    \"errorType\": \"<string>\",\n    \"errorMessage\": \"<string>\",\n    \"host\": \"<string>\",\n    \"region\": \"<string>\",\n    \"version\": \"<string>\",\n    \"tags\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"metadata\": {\n      \"key_0\": {}\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"api_error\",\n  \"message\": \"string\",\n  \"request_id\": \"string\",\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7efedc29-13f5-44f6-b9a7-83138334de30",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"environment\": \"<string>\",\n  \"severity\": \"<string>\",\n  \"triggeredAt\": \"<dateTime>\",\n  \"context\": {\n    \"alertUrl\": \"<uri>\",\n    \"service\": \"<string>\",\n    \"traceId\": \"<string>\",\n    \"spanId\": \"<string>\",\n    \"errorType\": \"<string>\",\n    \"errorMessage\": \"<string>\",\n    \"host\": \"<string>\",\n    \"region\": \"<string>\",\n    \"version\": \"<string>\",\n    \"tags\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"metadata\": {\n      \"key_0\": {}\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"api_error\",\n  \"message\": \"string\",\n  \"request_id\": \"string\",\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "41d3db22-9025-4c72-a205-276ca6761baa",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"environment\": \"<string>\",\n  \"severity\": \"<string>\",\n  \"triggeredAt\": \"<dateTime>\",\n  \"context\": {\n    \"alertUrl\": \"<uri>\",\n    \"service\": \"<string>\",\n    \"traceId\": \"<string>\",\n    \"spanId\": \"<string>\",\n    \"errorType\": \"<string>\",\n    \"errorMessage\": \"<string>\",\n    \"host\": \"<string>\",\n    \"region\": \"<string>\",\n    \"version\": \"<string>\",\n    \"tags\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"metadata\": {\n      \"key_0\": {}\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"api_error\",\n  \"message\": \"string\",\n  \"request_id\": \"string\",\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a57fdeaf-be46-40f3-9ec8-279ba75ee5cc",
+          "name": "Fetch issues for an organization",
+          "request": {
+            "name": "Fetch issues for an organization",
+            "description": {
+              "content": "Returns a paginated list of issues for the authenticated organization",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "issues"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10",
+                  "description": "Number of items to return (1-100)"
+                },
+                {
+                  "disabled": false,
+                  "key": "startingAfter",
+                  "value": "<string>",
+                  "description": "Cursor for forward pagination (ID/UUID to start after)"
+                },
+                {
+                  "disabled": false,
+                  "key": "endingBefore",
+                  "value": "<string>",
+                  "description": "Cursor for backward pagination (ID/UUID to end before)"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter by issue status"
+                },
+                {
+                  "disabled": false,
+                  "key": "environment",
+                  "value": "<string>",
+                  "description": "Filter by environment (exact match)"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Search issues by title or description (case-insensitive substring match)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                "key": "Antimetal-Version",
+                "value": "2026-03-17"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "570b97e2-4de6-416a-86cf-d1ca84445bba",
+              "name": "Paginated list of issues",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "startingAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endingBefore",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "environment",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"list\",\n  \"data\": [\n    {\n      \"uuid\": \"string\",\n      \"number\": 6498081721439761,\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"severity\": \"low\",\n      \"status\": \"ready_to_fix\",\n      \"environment\": \"string\",\n      \"triggeredAt\": \"0563-09-24T22:46Z\",\n      \"seedCount\": 3067786583077966\n    },\n    {\n      \"uuid\": \"string\",\n      \"number\": 372590919208678,\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"severity\": \"low\",\n      \"status\": \"muted\",\n      \"environment\": \"string\",\n      \"triggeredAt\": \"6628-03-15T23:01Z\",\n      \"seedCount\": 2325353308610970\n    }\n  ],\n  \"has_more\": true,\n  \"after\": \"string\",\n  \"before\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "832ff7b7-cd24-4bf5-bbad-39596683c00e",
+              "name": "Validation error or bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "startingAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endingBefore",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "environment",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"api_error\",\n  \"message\": \"string\",\n  \"request_id\": \"string\",\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2f3283c1-7b4d-47c4-ac89-c99209807d31",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "startingAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endingBefore",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "environment",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"api_error\",\n  \"message\": \"string\",\n  \"request_id\": \"string\",\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aa88ecc1-4c59-4e8b-b6ed-1b427253bdf3",
+              "name": "Insufficient permissions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "startingAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endingBefore",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "environment",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"api_error\",\n  \"message\": \"string\",\n  \"request_id\": \"string\",\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3fb57abd-7746-4dc4-aacb-c167b9f7b175",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "startingAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endingBefore",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "environment",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"api_error\",\n  \"message\": \"string\",\n  \"request_id\": \"string\",\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "40ff953f-b4d0-444a-b3fd-31fbbbb56aaa",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "startingAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endingBefore",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "environment",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"api_error\",\n  \"message\": \"string\",\n  \"request_id\": \"string\",\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0587698c-13f9-4689-8341-77aa379ed656",
+          "name": "Fetch issue by number",
+          "request": {
+            "name": "Fetch issue by number",
+            "description": {
+              "content": "Lightweight endpoint to retrieve basic issue information by issue number",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "issues",
+                "by_number",
+                ":number"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "number",
+                  "description": "(Required) Issue number (organization-scoped)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                "key": "Antimetal-Version",
+                "value": "2026-03-17"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "60f2efbd-9ffb-4714-b9ed-71ef99f7b9a4",
+              "name": "Issue details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues",
+                    "by_number",
+                    ":number"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "number",
+                      "description": "(Required) Issue number (organization-scoped)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"uuid\": \"string\",\n  \"number\": 7411169708196675,\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"severity\": \"low\",\n  \"status\": \"resolved\",\n  \"environment\": \"string\",\n  \"triggeredAt\": \"9951-10-02T05:46Z\",\n  \"createdAt\": \"9600-02-29T21:26:34Z\",\n  \"updatedAt\": \"0672-02-29T12:39:39.1665Z\",\n  \"seedCount\": 6735204529404059,\n  \"seeds\": [\n    {\n      \"publicUuid\": \"cAdafDfE-DF6e-83eA-E373-C106f551FfA5\",\n      \"seedType\": \"user_query\",\n      \"provider\": \"sentry\",\n      \"providerReferenceId\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"triggeredAt\": \"9388-02-29T18:53Z\",\n      \"link\": \"string\",\n      \"query\": \"string\",\n      \"rawPayload\": null\n    },\n    {\n      \"publicUuid\": \"1D0cB70c-2ABa-CBFF-fF8D-AD5ecD182e9f\",\n      \"seedType\": \"alert\",\n      \"provider\": \"datadog\",\n      \"providerReferenceId\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"triggeredAt\": \"5358-07-13T22:48:43Z\",\n      \"link\": \"string\",\n      \"query\": null,\n      \"rawPayload\": null\n    }\n  ],\n  \"latestVersion\": 3753260757797877,\n  \"versions\": [\n    {\n      \"uuid\": \"string\",\n      \"version\": 5844388789171179,\n      \"status\": \"PENDING\",\n      \"description\": \"string\"\n    },\n    {\n      \"uuid\": \"string\",\n      \"version\": 421936005087708,\n      \"status\": \"SUCCESS\",\n      \"description\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1ba52392-1fc1-48db-a869-cd8423f05877",
+              "name": "Issue not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues",
+                    "by_number",
+                    ":number"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "number",
+                      "description": "(Required) Issue number (organization-scoped)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"api_error\",\n  \"message\": \"string\",\n  \"request_id\": \"string\",\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "97f5af0e-10cf-4154-b48e-dcd14e84bdea",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues",
+                    "by_number",
+                    ":number"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "number",
+                      "description": "(Required) Issue number (organization-scoped)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "02f2970f-95ac-4bd0-a523-4fa3157f1f9c",
+          "name": "Fetch an issue by ID (UUID)",
+          "request": {
+            "name": "Fetch an issue by ID (UUID)",
+            "description": {
+              "content": "Retrieves detailed information about a specific issue by its ID (UUID)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "issues",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "version",
+                  "value": "<integer>",
+                  "description": "Issue version (defaults to latest)"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) Issue unique identifier (UUID)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                "key": "Antimetal-Version",
+                "value": "2026-03-17"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a0fff408-4732-4878-9e98-e29d58e3e920",
+              "name": "Issue details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "version",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Issue unique identifier (UUID)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"uuid\": \"string\",\n  \"number\": 1419499602811141,\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"severity\": \"low\",\n  \"status\": \"resolved\",\n  \"environment\": \"string\",\n  \"triggeredAt\": \"8552-02-29T18:18Z\",\n  \"createdAt\": \"9908-02-29T00:53Z\",\n  \"updatedAt\": \"2216-02-29T21:12:35.6766Z\",\n  \"seedCount\": 3608887918148948,\n  \"seeds\": [\n    {\n      \"publicUuid\": \"46D258b9-731F-48f7-1Cdf-7cEAaeb7804E\",\n      \"seedType\": \"user_query\",\n      \"provider\": \"slack\",\n      \"providerReferenceId\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"triggeredAt\": \"2800-02-29T16:03:01Z\",\n      \"link\": \"string\",\n      \"query\": \"string\",\n      \"rawPayload\": {\n        \"key_0\": \"\"\n      }\n    },\n    {\n      \"publicUuid\": \"804e9B78-7aF3-3Ea7-09eA-faD7D1c8eCd9\",\n      \"seedType\": \"user_query\",\n      \"provider\": \"cloudwatch\",\n      \"providerReferenceId\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"triggeredAt\": \"1008-02-29T00:08Z\",\n      \"link\": null,\n      \"query\": \"string\",\n      \"rawPayload\": null\n    }\n  ],\n  \"latestVersion\": 5771208234810133,\n  \"versions\": [\n    {\n      \"uuid\": \"string\",\n      \"version\": 6295134680036330,\n      \"status\": \"SUCCESS\",\n      \"description\": \"string\"\n    },\n    {\n      \"uuid\": \"string\",\n      \"version\": 5828621922321143,\n      \"status\": \"PENDING\",\n      \"description\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "941242f3-504a-4b20-b6bb-45fcc82cc113",
+              "name": "Validation error or bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "version",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Issue unique identifier (UUID)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"api_error\",\n  \"message\": \"string\",\n  \"request_id\": \"string\",\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aea458af-cc30-4751-a407-893f18b03e65",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "version",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Issue unique identifier (UUID)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"api_error\",\n  \"message\": \"string\",\n  \"request_id\": \"string\",\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "70c7aec9-2ce0-40c1-89b9-d7ece729d052",
+              "name": "Insufficient permissions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "version",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Issue unique identifier (UUID)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"api_error\",\n  \"message\": \"string\",\n  \"request_id\": \"string\",\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0a36df00-a86c-4bc4-b3e7-206e93ea95a5",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "version",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Issue unique identifier (UUID)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"api_error\",\n  \"message\": \"string\",\n  \"request_id\": \"string\",\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "36c757a2-217d-405f-b0eb-b7bd2cd9d4a9",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "version",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Issue unique identifier (UUID)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"api_error\",\n  \"message\": \"string\",\n  \"request_id\": \"string\",\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ecf8da94-33f5-4203-a8b5-7177fae3d415",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "version",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Issue unique identifier (UUID)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"api_error\",\n  \"message\": \"string\",\n  \"request_id\": \"string\",\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fd0fa5a0-2b39-4282-a50a-c4794e990f5e",
+          "name": "Update issue status by ID (UUID)",
+          "request": {
+            "name": "Update issue status by ID (UUID)",
+            "description": {
+              "content": "Updates the status of an existing issue by its ID (UUID)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "issues",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) Issue unique identifier (UUID)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                "key": "Antimetal-Version",
+                "value": "2026-03-17"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "13485c90-a9ff-4421-9dac-f098f9524b49",
+              "name": "Updated issue",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Issue unique identifier (UUID)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"uuid\": \"string\",\n  \"number\": 1419499602811141,\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"severity\": \"low\",\n  \"status\": \"resolved\",\n  \"environment\": \"string\",\n  \"triggeredAt\": \"8552-02-29T18:18Z\",\n  \"createdAt\": \"9908-02-29T00:53Z\",\n  \"updatedAt\": \"2216-02-29T21:12:35.6766Z\",\n  \"seedCount\": 3608887918148948,\n  \"seeds\": [\n    {\n      \"publicUuid\": \"46D258b9-731F-48f7-1Cdf-7cEAaeb7804E\",\n      \"seedType\": \"user_query\",\n      \"provider\": \"slack\",\n      \"providerReferenceId\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"triggeredAt\": \"2800-02-29T16:03:01Z\",\n      \"link\": \"string\",\n      \"query\": \"string\",\n      \"rawPayload\": {\n        \"key_0\": \"\"\n      }\n    },\n    {\n      \"publicUuid\": \"804e9B78-7aF3-3Ea7-09eA-faD7D1c8eCd9\",\n      \"seedType\": \"user_query\",\n      \"provider\": \"cloudwatch\",\n      \"providerReferenceId\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"triggeredAt\": \"1008-02-29T00:08Z\",\n      \"link\": null,\n      \"query\": \"string\",\n      \"rawPayload\": null\n    }\n  ],\n  \"latestVersion\": 5771208234810133,\n  \"versions\": [\n    {\n      \"uuid\": \"string\",\n      \"version\": 6295134680036330,\n      \"status\": \"SUCCESS\",\n      \"description\": \"string\"\n    },\n    {\n      \"uuid\": \"string\",\n      \"version\": 5828621922321143,\n      \"status\": \"PENDING\",\n      \"description\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6ab63f56-f220-4ebd-93f4-dfd01e1bcb7e",
+              "name": "Validation error or bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Issue unique identifier (UUID)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"api_error\",\n  \"message\": \"string\",\n  \"request_id\": \"string\",\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "601a1368-b366-438f-9cf5-74690055ed2b",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Issue unique identifier (UUID)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"api_error\",\n  \"message\": \"string\",\n  \"request_id\": \"string\",\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a0a01522-5d70-4d85-a563-7f709ada0270",
+              "name": "Insufficient permissions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Issue unique identifier (UUID)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"api_error\",\n  \"message\": \"string\",\n  \"request_id\": \"string\",\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ee81cffd-c96f-42cf-a1c6-75a2a509c83c",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Issue unique identifier (UUID)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"api_error\",\n  \"message\": \"string\",\n  \"request_id\": \"string\",\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d809ee8f-7bd0-470c-bf3c-e6539a34ca6d",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Issue unique identifier (UUID)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"api_error\",\n  \"message\": \"string\",\n  \"request_id\": \"string\",\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0964d6e6-8fb2-49f7-b23d-678ca4485a61",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Issue unique identifier (UUID)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"api_error\",\n  \"message\": \"string\",\n  \"request_id\": \"string\",\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "448e7ba2-e07e-44ef-9e63-f0b9761c4fce",
+          "name": "Delete an issue",
+          "request": {
+            "name": "Delete an issue",
+            "description": {
+              "content": "Permanently deletes an issue and all associated data",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "issues",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) Issue unique identifier (UUID)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                "key": "Antimetal-Version",
+                "value": "2026-03-17"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "63e6d43b-c4b6-4155-8946-808c35667c91",
+              "name": "Issue deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Issue unique identifier (UUID)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6331e044-1eb2-4f67-8759-2f7d9182e2bd",
+              "name": "Validation error or bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Issue unique identifier (UUID)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"api_error\",\n  \"message\": \"string\",\n  \"request_id\": \"string\",\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "02970b19-757d-4deb-84f4-06256c178c00",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Issue unique identifier (UUID)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"api_error\",\n  \"message\": \"string\",\n  \"request_id\": \"string\",\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b45ddad6-c74f-4999-8143-555fb53523ac",
+              "name": "Insufficient permissions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Issue unique identifier (UUID)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"api_error\",\n  \"message\": \"string\",\n  \"request_id\": \"string\",\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9804608e-5342-44d9-9bdb-d700545e0664",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Issue unique identifier (UUID)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"api_error\",\n  \"message\": \"string\",\n  \"request_id\": \"string\",\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4fb4f353-71c0-4ebe-aa5b-d2e4324d8667",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Issue unique identifier (UUID)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"api_error\",\n  \"message\": \"string\",\n  \"request_id\": \"string\",\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3e9e3504-120f-472c-b113-27bfc45ed2ee",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Issue unique identifier (UUID)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"api_error\",\n  \"message\": \"string\",\n  \"request_id\": \"string\",\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6569b2c3-5079-45d7-bc59-04478795e204",
+          "name": "Fetch investigation results by ID (UUID)",
+          "request": {
+            "name": "Fetch investigation results by ID (UUID)",
+            "description": {
+              "content": "Retrieves detailed investigation results including root cause analysis and remediation steps",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "issues",
+                ":id",
+                "results"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "version",
+                  "value": "<integer>",
+                  "description": "Issue version for workflow results (defaults to latest)"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) Issue unique identifier (UUID)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                "key": "Antimetal-Version",
+                "value": "2026-03-17"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5c161a27-fa95-4f42-a402-0295c59a6a54",
+              "name": "Investigation results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues",
+                    ":id",
+                    "results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "version",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Issue unique identifier (UUID)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sessionUuid\": null,\n  \"rootCause\": {\n    \"id\": \"string\",\n    \"incidentOverview\": \"string\",\n    \"rootCauseSummary\": \"string\",\n    \"relevantEvidence\": [\n      {\n        \"title\": \"string\",\n        \"status\": \"irrelevant\",\n        \"description\": \"string\",\n        \"confidence\": \"likely\",\n        \"artifacts\": [\n          {\n            \"documentId\": \"string\",\n            \"title\": \"string\",\n            \"description\": \"string\",\n            \"dataType\": \"string\"\n          },\n          {\n            \"documentId\": \"string\",\n            \"title\": \"string\",\n            \"description\": \"string\",\n            \"dataType\": \"string\"\n          }\n        ]\n      },\n      {\n        \"title\": \"string\",\n        \"status\": \"inconclusive\",\n        \"description\": \"string\",\n        \"confidence\": \"unclear\",\n        \"artifacts\": [\n          {\n            \"documentId\": \"string\",\n            \"title\": \"string\",\n            \"description\": \"string\",\n            \"dataType\": \"string\"\n          },\n          {\n            \"documentId\": \"string\",\n            \"title\": \"string\",\n            \"description\": \"string\",\n            \"dataType\": \"string\"\n          }\n        ]\n      }\n    ],\n    \"irrelevantEvidence\": [\n      {\n        \"title\": \"string\",\n        \"status\": \"relevant\",\n        \"description\": \"string\",\n        \"confidence\": \"unclear\",\n        \"artifacts\": [\n          {\n            \"documentId\": \"string\",\n            \"title\": \"string\",\n            \"description\": \"string\",\n            \"dataType\": \"string\"\n          },\n          {\n            \"documentId\": \"string\",\n            \"title\": \"string\",\n            \"description\": \"string\",\n            \"dataType\": \"string\"\n          }\n        ]\n      },\n      {\n        \"title\": \"string\",\n        \"status\": \"inconclusive\",\n        \"description\": \"string\",\n        \"confidence\": \"unclear\",\n        \"artifacts\": [\n          {\n            \"documentId\": \"string\",\n            \"title\": \"string\",\n            \"description\": \"string\",\n            \"dataType\": \"string\"\n          },\n          {\n            \"documentId\": \"string\",\n            \"title\": \"string\",\n            \"description\": \"string\",\n            \"dataType\": \"string\"\n          }\n        ]\n      }\n    ]\n  },\n  \"causalTree\": {\n    \"nodes\": [\n      {\n        \"id\": \"string\",\n        \"type\": \"validated\",\n        \"title\": \"string\",\n        \"description\": \"string\",\n        \"expandedContent\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"type\": \"ruled-out\",\n        \"title\": \"string\",\n        \"description\": \"string\",\n        \"expandedContent\": \"string\"\n      }\n    ],\n    \"edges\": [\n      {\n        \"id\": \"string\",\n        \"source\": \"string\",\n        \"target\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"source\": \"string\",\n        \"target\": \"string\"\n      }\n    ]\n  },\n  \"causalTreeV2\": {\n    \"nodes\": [\n      {\n        \"id\": \"string\",\n        \"title\": \"string\",\n        \"description\": \"string\",\n        \"confidence\": \"likely\",\n        \"nodeType\": \"confounder\",\n        \"evidence\": [\n          {\n            \"documentId\": \"string\",\n            \"title\": \"string\",\n            \"description\": \"string\",\n            \"dataType\": \"string\"\n          },\n          {\n            \"documentId\": \"string\",\n            \"title\": \"string\",\n            \"description\": \"string\",\n            \"dataType\": \"string\"\n          }\n        ]\n      },\n      {\n        \"id\": \"string\",\n        \"title\": \"string\",\n        \"description\": \"string\",\n        \"confidence\": \"unclear\",\n        \"nodeType\": \"cause\",\n        \"evidence\": [\n          {\n            \"documentId\": \"string\",\n            \"title\": \"string\",\n            \"description\": \"string\",\n            \"dataType\": \"string\"\n          },\n          {\n            \"documentId\": \"string\",\n            \"title\": \"string\",\n            \"description\": \"string\",\n            \"dataType\": \"string\"\n          }\n        ]\n      }\n    ],\n    \"edges\": [\n      {\n        \"from\": \"string\",\n        \"to\": \"string\",\n        \"confidence\": 0.6209979480543966\n      },\n      {\n        \"from\": \"string\",\n        \"to\": \"string\",\n        \"confidence\": 0.9039018890865009\n      }\n    ]\n  },\n  \"remediation\": {\n    \"actions\": [\n      {\n        \"id\": \"string\",\n        \"uuid\": \"string\",\n        \"title\": \"string\",\n        \"steps\": [\n          {\n            \"id\": \"string\",\n            \"title\": \"string\",\n            \"required\": true,\n            \"type\": \"info\",\n            \"content\": \"string\",\n            \"helpMarkdown\": \"string\",\n            \"label\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"title\": \"string\",\n            \"required\": false,\n            \"type\": \"info\",\n            \"content\": \"string\",\n            \"helpMarkdown\": \"string\",\n            \"label\": \"string\"\n          }\n        ],\n        \"description\": \"string\",\n        \"category\": \"immediate\",\n        \"markdownPrompt\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"uuid\": \"string\",\n        \"title\": \"string\",\n        \"steps\": [\n          {\n            \"id\": \"string\",\n            \"title\": \"string\",\n            \"required\": false,\n            \"type\": \"info\",\n            \"content\": \"string\",\n            \"helpMarkdown\": \"string\",\n            \"label\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"title\": \"string\",\n            \"required\": false,\n            \"type\": \"info\",\n            \"content\": \"string\",\n            \"helpMarkdown\": \"string\",\n            \"label\": \"string\"\n          }\n        ],\n        \"description\": \"string\",\n        \"category\": \"root_cause\",\n        \"markdownPrompt\": \"string\"\n      }\n    ]\n  },\n  \"timeline\": [\n    {\n      \"id\": \"string\",\n      \"type\": \"mediator\",\n      \"timestamp\": \"3984-02-29T06:46Z\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"evidence\": [\n        {\n          \"artifactId\": \"string\",\n          \"timestamp\": \"2109-03-10T21:29:09Z\",\n          \"title\": \"string\",\n          \"description\": \"string\"\n        },\n        {\n          \"artifactId\": null,\n          \"timestamp\": \"2908-02-29T23:38Z\",\n          \"title\": \"string\",\n          \"description\": \"string\"\n        }\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"type\": \"mediator\",\n      \"timestamp\": \"8024-02-29T09:54Z\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"evidence\": [\n        {\n          \"artifactId\": \"string\",\n          \"timestamp\": \"9876-02-29T23:55Z\",\n          \"title\": \"string\",\n          \"description\": \"string\"\n        },\n        {\n          \"artifactId\": \"string\",\n          \"timestamp\": \"5464-02-21T22:29:22.48Z\",\n          \"title\": \"string\",\n          \"description\": \"string\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5d351e70-f57a-48ee-9054-e113604ccebb",
+              "name": "Validation error or bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues",
+                    ":id",
+                    "results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "version",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Issue unique identifier (UUID)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"api_error\",\n  \"message\": \"string\",\n  \"request_id\": \"string\",\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "04ccc65f-c446-4c2b-9368-6cc76f8783b6",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues",
+                    ":id",
+                    "results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "version",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Issue unique identifier (UUID)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"api_error\",\n  \"message\": \"string\",\n  \"request_id\": \"string\",\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0a6ec786-7832-4d79-8763-df2afef1a061",
+              "name": "Insufficient permissions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues",
+                    ":id",
+                    "results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "version",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Issue unique identifier (UUID)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"api_error\",\n  \"message\": \"string\",\n  \"request_id\": \"string\",\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e7074356-6f64-4c4b-8934-5bd4f937f41e",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues",
+                    ":id",
+                    "results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "version",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Issue unique identifier (UUID)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"api_error\",\n  \"message\": \"string\",\n  \"request_id\": \"string\",\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3d21fda6-b272-4fca-b77d-f0fcd344bdc0",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues",
+                    ":id",
+                    "results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "version",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Issue unique identifier (UUID)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"api_error\",\n  \"message\": \"string\",\n  \"request_id\": \"string\",\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9f3a802e-1d2b-4459-ac27-b34aac31c82a",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "issues",
+                    ":id",
+                    "results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "version",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) Issue unique identifier (UUID)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"api_error\",\n  \"message\": \"string\",\n  \"request_id\": \"string\",\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://bff.antimetal.com/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "974a612f-62d0-4505-b941-fb59e6349ce6",
+    "name": "Antimetal External Issues API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Public-facing API for external integrations with Antimetal. Provides programmatic access to issue investigation, results, artifacts, and chat functionality.",
+      "type": "text/plain"
+    }
+  }
+}

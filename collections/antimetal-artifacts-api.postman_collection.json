@@ -1,0 +1,442 @@
+{
+  "item": [
+    {
+      "id": "0a01997a-5f82-4f24-9b90-0245b6aa7b51",
+      "name": "Artifacts",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fa72b5f6-3e8f-4ab1-8ccb-af9c4e9e5562",
+          "name": "Retrieve artifacts by IDs",
+          "request": {
+            "name": "Retrieve artifacts by IDs",
+            "description": {
+              "content": "Fetches multiple evidential artifacts by their IDs. Supports up to 100 IDs per request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "artifacts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<string>",
+                  "description": "(Required) Artifact IDs to retrieve (can be specified multiple times: ?id=foo&id=bar)"
+                },
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<string>",
+                  "description": "(Required) Artifact IDs to retrieve (can be specified multiple times: ?id=foo&id=bar)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                "key": "Antimetal-Version",
+                "value": "2026-03-17"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "052eca08-cd59-4df0-be8d-2949a4f41d20",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "artifacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"provider\": \"user\",\n    \"providerUrl\": \"string\",\n    \"summary\": null,\n    \"createdAt\": \"8800-02-29T16:10Z\",\n    \"updatedAt\": \"8236-02-29T20:14:26Z\",\n    \"type\": \"metric\",\n    \"data\": {\n      \"metricType\": \"gauge\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"unit\": \"string\",\n      \"dataPoints\": [\n        {\n          \"attributes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startTimeUnixNano\": \"string\",\n          \"timeUnixNano\": \"string\",\n          \"asDouble\": 86.87815320165826,\n          \"asInt\": \"string\",\n          \"exemplars\": [\n            {\n              \"filteredAttributes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"asDouble\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"asInt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"spanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"traceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"filteredAttributes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"asDouble\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"asInt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"spanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"traceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"flags\": 2680.074605260615\n        },\n        {\n          \"attributes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startTimeUnixNano\": \"string\",\n          \"timeUnixNano\": \"string\",\n          \"asDouble\": 8305.948901884289,\n          \"asInt\": \"string\",\n          \"exemplars\": [\n            {\n              \"filteredAttributes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"asDouble\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"asInt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"spanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"traceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"filteredAttributes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"asDouble\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"asInt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"spanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"traceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"flags\": 3298.0895791845587\n        }\n      ]\n    }\n  },\n  {\n    \"id\": \"string\",\n    \"provider\": \"grafana-tempo\",\n    \"providerUrl\": null,\n    \"summary\": null,\n    \"createdAt\": \"0800-02-29T20:24:25.482666Z\",\n    \"updatedAt\": \"5267-12-31T18:38:06.89649873025Z\",\n    \"type\": \"metric\",\n    \"data\": {\n      \"metricType\": \"gauge\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"unit\": \"string\",\n      \"dataPoints\": [\n        {\n          \"attributes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startTimeUnixNano\": \"string\",\n          \"timeUnixNano\": \"string\",\n          \"asDouble\": 9812.38948550086,\n          \"asInt\": \"string\",\n          \"exemplars\": [\n            {\n              \"filteredAttributes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"asDouble\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"asInt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"spanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"traceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"filteredAttributes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"asDouble\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"asInt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"spanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"traceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"flags\": 941.4979087073793\n        },\n        {\n          \"attributes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startTimeUnixNano\": \"string\",\n          \"timeUnixNano\": \"string\",\n          \"asDouble\": 9578.89633574462,\n          \"asInt\": \"string\",\n          \"exemplars\": [\n            {\n              \"filteredAttributes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"asDouble\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"asInt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"spanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"traceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"filteredAttributes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"asDouble\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"asInt\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"spanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"traceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"flags\": 8257.390299634766\n        }\n      ]\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f142ef61-8f18-46ce-89e3-8ed3a5d851aa",
+              "name": "Validation error or bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "artifacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"invalid_request_error\",\n  \"message\": \"string\",\n  \"request_id\": \"string\",\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4d10bcd2-902a-49f5-9bf8-05775b063a3f",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "artifacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"invalid_request_error\",\n  \"message\": \"string\",\n  \"request_id\": \"string\",\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c8f10acd-465d-4019-b20a-f5c6fb7ed75e",
+              "name": "Insufficient permissions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "artifacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"invalid_request_error\",\n  \"message\": \"string\",\n  \"request_id\": \"string\",\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "24cf9083-fb0f-4909-b13f-5453a699463c",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "artifacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"invalid_request_error\",\n  \"message\": \"string\",\n  \"request_id\": \"string\",\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "747f49cb-8f94-4e8d-ab3a-366f640d52d4",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "artifacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.",
+                    "key": "Antimetal-Version",
+                    "value": "2026-03-17"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"invalid_request_error\",\n  \"message\": \"string\",\n  \"request_id\": \"string\",\n  \"details\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://bff.antimetal.com/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "cd6746fc-47a9-4295-a247-a2b0923811cf",
+    "name": "Antimetal External Artifacts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Public-facing API for external integrations with Antimetal. Provides programmatic access to issue investigation, results, artifacts, and chat functionality.",
+      "type": "text/plain"
+    }
+  }
+}

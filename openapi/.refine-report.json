@@ -1,0 +1,23 @@
+{
+  "provider": "antimetal",
+  "sources": [
+    "antimetal-artifacts-api-openapi.yml",
+    "antimetal-issues-api-openapi.yml",
+    "antimetal-query-api-openapi.yml"
+  ],
+  "outputs": [
+    "antimetal-artifacts-api-openapi.yml",
+    "antimetal-issues-api-openapi.yml",
+    "antimetal-query-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "antimetal-artifacts-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "antimetal-issues-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "antimetal-query-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": []
+}

@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Antimetal External Artifacts API",
+    "version": "2026-03-17"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Artifacts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve artifacts by IDs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bff.antimetal.com/api/v2/artifacts",
+            "headers": [
+              {
+                "name": "Antimetal-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Artifact IDs to retrieve (can be specified multiple times: ?id=foo&id=bar)"
+              }
+            ]
+          },
+          "docs": "Fetches multiple evidential artifacts by their IDs. Supports up to 100 IDs per request."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

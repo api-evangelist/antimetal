@@ -1,0 +1,45 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Antimetal External Query API",
+    "version": "2026-03-17"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Query",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Ask Antimetal's AI agent a question",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bff.antimetal.com/api/v2/query",
+            "headers": [
+              {
+                "name": "Antimetal-Version",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sends a question to Antimetal's AI agent and returns a natural language answer. Pass the returned conversation_id in subsequent requests to continue the conversation. Set stream: true (and Accept: text/event-stream) to receive a Server-Sent Events stream."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

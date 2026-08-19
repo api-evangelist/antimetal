@@ -1,0 +1,169 @@
+openapi: 3.2.0
+info:
+  title: Antimetal External Query API
+  description: Public-facing API for external integrations with Antimetal. Provides programmatic access to issue investigation, results, artifacts, and chat functionality.
+  version: '2026-03-17'
+  contact: {}
+servers:
+- url: https://bff.antimetal.com/api/v2
+  description: Production API
+- url: https://bff.dev.antimetal.com/api/v2
+  description: Dev API
+security:
+- bearer: []
+tags:
+- name: Query
+paths:
+  /query:
+    post:
+      description: 'Sends a question to Antimetal''s AI agent and returns a natural language answer. Pass the returned conversation_id in subsequent requests to continue the conversation. Set stream: true (and Accept: text/event-stream) to receive a Server-Sent Events stream.'
+      operationId: query
+      parameters:
+      - $ref: '#/components/parameters/AntimetalVersion'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryRequestDto'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResponseDto'
+        '400':
+          description: Validation error or bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponseDto'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponseDto'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponseDto'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponseDto'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponseDto'
+      summary: Ask Antimetal's AI agent a question
+      tags:
+      - Query
+      x-codeSamples:
+      - lang: JavaScript
+        source: "import Antimetal from '@antimetal/sdk';\n\nconst client = new Antimetal({\n  apiKey: process.env['ANTIMETAL_API_KEY'], // This is the default and can be omitted\n});\n\nconst queryResponse = await client.query.ask({ question: 'x' });\n\nconsole.log(queryResponse.conversation_id);"
+components:
+  schemas:
+    ErrorResponseDto:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - api_error
+          - invalid_request_error
+          - authentication_error
+          description: Error type classification
+        message:
+          type: string
+          description: Human-readable error message
+        request_id:
+          type: string
+          description: Request correlation ID for tracing and support
+        details:
+          description: Detailed field-level validation errors (for 400/422 responses)
+          type: object
+          additionalProperties:
+            type: string
+      required:
+      - type
+      - message
+      - request_id
+    QueryResponseDto:
+      type: object
+      properties:
+        conversation_id:
+          type: string
+          format: uuid
+          pattern: ^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$
+          description: Pass in subsequent requests to continue this conversation
+        answer:
+          type: string
+          description: The AI agent's natural language answer
+        artifacts:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: Artifact document ID, e.g. 'metric:datadog:abc123'
+              tool_name:
+                type: string
+                description: Name of the tool that produced this artifact
+              data_type:
+                description: 'Artifact data type: metric, log, trace, file, event, topology'
+                type: string
+              provider:
+                description: 'Provider: datadog, gcp, github, etc.'
+                type: string
+              summary:
+                description: Brief description from tool output
+                type: string
+            required:
+            - id
+            - tool_name
+          description: Artifacts (metrics, logs, traces, etc.) the agent found while answering
+      required:
+      - conversation_id
+      - answer
+      - artifacts
+    QueryRequestDto:
+      type: object
+      properties:
+        question:
+          type: string
+          minLength: 1
+          description: Natural language question to ask the AI agent
+        conversation_id:
+          description: Conversation ID from a previous query response — pass to continue that conversation
+          type: string
+          format: uuid
+          pattern: ^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$
+        stream:
+          description: 'When true, returns a Server-Sent Events stream. Must also send Accept: text/event-stream header.'
+          type: boolean
+      required:
+      - question
+  parameters:
+    AntimetalVersion:
+      name: Antimetal-Version
+      in: header
+      required: false
+      description: The API version to use. Defaults to the latest stable version if omitted. Pin to the version string in this document's `info.version` field to opt into exactly this version's schema.
+      schema:
+        type: string
+        example: '2026-03-17'
+        default: '2026-03-17'
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+      description: API key authentication via Bearer token
