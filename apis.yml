@@ -14,6 +14,19 @@ description: Antimetal is a New York based software company building an autonomo
   SDK, published Agent Skills for Claude Code and Cursor, open protobuf definitions for its
   infrastructure agent, and a Terraform provider and Helm charts.
 url: https://raw.githubusercontent.com/api-evangelist/antimetal/refs/heads/main/apis.yml
+deliveryModel:
+  model: unknown
+  open_source: unknown
+  commercial: true
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  - pricing
+  - repository-unlicensed
+  generated: '2026-08-28'
+  method: derived
 image: https://avatars.githubusercontent.com/antimetal
 x-type: company
 x-source: harvest:secondary-market
