@@ -71,31 +71,6 @@ paths:
         source: "import Antimetal from '@antimetal/sdk';\n\nconst client = new Antimetal({\n  apiKey: process.env['ANTIMETAL_API_KEY'], // This is the default and can be omitted\n});\n\nconst queryResponse = await client.query.ask({ question: 'x' });\n\nconsole.log(queryResponse.conversation_id);"
 components:
   schemas:
-    ErrorResponseDto:
-      type: object
-      properties:
-        type:
-          type: string
-          enum:
-          - api_error
-          - invalid_request_error
-          - authentication_error
-          description: Error type classification
-        message:
-          type: string
-          description: Human-readable error message
-        request_id:
-          type: string
-          description: Request correlation ID for tracing and support
-        details:
-          description: Detailed field-level validation errors (for 400/422 responses)
-          type: object
-          additionalProperties:
-            type: string
-      required:
-      - type
-      - message
-      - request_id
     QueryResponseDto:
       type: object
       properties:
@@ -152,6 +127,31 @@ components:
           type: boolean
       required:
       - question
+    ErrorResponseDto:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - api_error
+          - invalid_request_error
+          - authentication_error
+          description: Error type classification
+        message:
+          type: string
+          description: Human-readable error message
+        request_id:
+          type: string
+          description: Request correlation ID for tracing and support
+        details:
+          description: Detailed field-level validation errors (for 400/422 responses)
+          type: object
+          additionalProperties:
+            type: string
+      required:
+      - type
+      - message
+      - request_id
   parameters:
     AntimetalVersion:
       name: Antimetal-Version

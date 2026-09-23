@@ -1,9 +1,7 @@
 {
   "provider": "antimetal",
   "sources": [
-    "antimetal-artifacts-api-openapi.yml",
-    "antimetal-issues-api-openapi.yml",
-    "antimetal-query-api-openapi.yml"
+    "_original/antimetal-external-api-openapi.json"
   ],
   "outputs": [
     "antimetal-artifacts-api-openapi.yml",
@@ -14,10 +12,16 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "antimetal-artifacts-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "antimetal-issues-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "antimetal-query-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "antimetal-external-api-openapi.json: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "antimetal-external-api-openapi.json: declared missing tag: Artifacts",
+    "antimetal-external-api-openapi.json: declared missing tag: Issues",
+    "antimetal-external-api-openapi.json: declared missing tag: Query",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "antimetal-artifacts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "antimetal-issues-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "antimetal-query-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

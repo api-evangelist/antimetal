@@ -1,4 +1,4 @@
-generated: '2026-08-06'
+generated: '2026-09-19'
 method: searched
 source: probed /.well-known/* across every Antimetal host found in apis.yml
 hosts:
@@ -8,9 +8,8 @@ hosts:
     status: 200
     content_type: application/linkset+json; profile="https://www.rfc-editor.org/info/rfc9727"
     file: antimetal-api-catalog.json
-    note: RFC 9727 linkset. Anchors https://bff.antimetal.com/api/v2 and points service-desc
-      at https://docs.antimetal.com/assets/openapi.mintlify.json — this is how the
-      real OpenAPI was located.
+    note: RFC 9727 linkset. Anchors https://bff.antimetal.com/api/v2 and points service-desc at https://docs.antimetal.com/assets/openapi.mintlify.json
+      — this is how the real OpenAPI was located.
   - path: /.well-known/security.txt
     status: 404
   - path: /.well-known/openid-configuration
@@ -24,8 +23,8 @@ hosts:
     file: ../llms/antimetal-site-llms.txt
   - path: /robots.txt
     status: 200
-    note: Carries a Content-Signal policy — "ai-train=no, search=yes, ai-input=yes"
-      — repeated per user-agent for GPTBot, ClaudeBot, Google-Extended and PerplexityBot.
+    note: Carries a Content-Signal policy — "ai-train=no, search=yes, ai-input=yes" — repeated per user-agent
+      for GPTBot, ClaudeBot, Google-Extended and PerplexityBot.
 - host: https://docs.antimetal.com
   documents:
   - path: /.well-known/agent-card.json
@@ -68,5 +67,25 @@ hosts:
     status: 403
   - path: /docs
     status: 403
-  note: Every path on this host returns 403; it is not the documented API host. The
-    documented production base URL is https://bff.antimetal.com/api/v2.
+  note: Every path on this host returns 403; it is not the documented API host. The documented production
+    base URL is https://bff.antimetal.com/api/v2.
+- host: https://antimetal.authkit.app
+  documents:
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: antimetal-antimetal-oauth-authorization-server.json
+    bytes: 974
+  path_echo_control: passed
+x-mcp-probe:
+  probed: '2026-09-19'
+  issue: roadmap#321, roadmap#337
+  documents:
+  - host: https://antimetal.authkit.app
+    path: /.well-known/oauth-authorization-server
+    file: antimetal-antimetal-oauth-authorization-server.json
+  validated_on: resource (RFC 9728) / issuer (RFC 8414, OIDC)
+  negative_control: one per host; a 2xx JSON object at an impossible path discards the host
+note: 'MCP-host OAuth discovery added 2026-09-19 (roadmap#321/#337): the harvest visits a provider''s
+  primary hosts, and RFC 9728 protected-resource metadata lives on the MCP host, so these documents existed
+  and were invisible to the scorer. Fetched live and validated on `resource`/`issuer`; one negative control
+  per host.'
