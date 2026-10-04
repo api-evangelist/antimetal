@@ -165,6 +165,9 @@ apis:
   - type: DataModel
     url: data-model/antimetal-data-model.yml
 common:
+- type: CapabilityMap
+  url: capabilities/antimetal-capability-edges.yml
+  name: Antimetal Business Capability Map
 - type: Overlay
   url: overlays/antimetal-external-api-overlay.yaml
 - type: IssueTracker
