@@ -93,135 +93,31 @@ paths:
         source: "import Antimetal from '@antimetal/sdk';\n\nconst client = new Antimetal({\n  apiKey: process.env['ANTIMETAL_API_KEY'], // This is the default and can be omitted\n});\n\nconst artifacts = await client.artifacts.list({ id: ['string'] });\n\nconsole.log(artifacts);"
 components:
   schemas:
-    MetricArtifactDto__schema1:
+    ErrorResponseDto:
       type: object
       properties:
-        stringValue:
-          type: string
-        boolValue:
-          type: boolean
-        intValue:
-          type: string
-        doubleValue:
-          anyOf:
-          - type: number
-          - type: string
-            enum:
-            - NaN
-          - type: string
-            enum:
-            - Infinity
-          - type: string
-            enum:
-            - -Infinity
-        arrayValue:
-          type: object
-          properties:
-            values:
-              type: array
-              items:
-                $ref: '#/components/schemas/MetricArtifactDto__schema1'
-        kvlistValue:
-          type: object
-          properties:
-            values:
-              type: array
-              items:
-                $ref: '#/components/schemas/MetricArtifactDto__schema0'
-        bytesValue:
-          type: string
-    FileArtifactDto:
-      type: object
-      properties:
-        id:
-          type: string
-        provider:
-          type: string
-          enum:
-          - datadog
-          - github
-          - slack
-          - antimetal
-          - sentry
-          - kubernetes
-          - incident-io
-          - prometheus
-          - grafana-tempo
-          - loki
-          - gcp
-          - cloudwatch
-          - user
-        providerUrl:
-          type:
-          - string
-          - 'null'
-        summary:
-          type:
-          - string
-          - 'null'
-        createdAt:
-          type: string
-          format: date-time
-          pattern: ^(?:(?:\d\d[2468][048]|\d\d[13579][26]|\d\d0[48]|[02468][048]00|[13579][26]00)-02-29|\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\d|30)|(?:02)-(?:0[1-9]|1\d|2[0-8])))T(?:(?:[01]\d|2[0-3]):[0-5]\d(?::[0-5]\d(?:\.\d+)?)?(?:Z))$
-        updatedAt:
-          type: string
-          format: date-time
-          pattern: ^(?:(?:\d\d[2468][048]|\d\d[13579][26]|\d\d0[48]|[02468][048]00|[13579][26]00)-02-29|\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\d|30)|(?:02)-(?:0[1-9]|1\d|2[0-8])))T(?:(?:[01]\d|2[0-3]):[0-5]\d(?::[0-5]\d(?:\.\d+)?)?(?:Z))$
         type:
           type: string
           enum:
-          - file
-        data:
-          type: object
-          properties:
-            content:
-              type: string
-              description: The text content of the file
-            metadata:
-              type: object
-              properties:
-                fileName:
-                  type: string
-                  description: The name of the file
-                filePath:
-                  type: string
-                  description: The path to the file
-                language:
-                  type: string
-                  description: The programming language of the code
-                lineStart:
-                  description: The start line of the code snippet, inclusive
-                  type: integer
-                  maximum: 9007199254740991
-                  exclusiveMinimum: 0
-                lineEnd:
-                  description: The end line of the code snippet, inclusive
-                  type: integer
-                  maximum: 9007199254740991
-                  exclusiveMinimum: 0
-              required:
-              - fileName
-              - filePath
-              - language
-          required:
-          - content
-          - metadata
-      required:
-      - id
-      - provider
-      - providerUrl
-      - summary
-      - createdAt
-      - updatedAt
-      - type
-      - data
-    MetricArtifactDto__schema0:
-      type: object
-      properties:
-        key:
+          - api_error
+          - invalid_request_error
+          - authentication_error
+          description: Error type classification
+        message:
           type: string
-        value:
-          $ref: '#/components/schemas/MetricArtifactDto__schema1'
+          description: Human-readable error message
+        request_id:
+          type: string
+          description: Request correlation ID for tracing and support
+        details:
+          description: Detailed field-level validation errors (for 400/422 responses)
+          type: object
+          additionalProperties:
+            type: string
+      required:
+      - type
+      - message
+      - request_id
     TraceArtifactDto:
       type: object
       properties:
@@ -307,146 +203,6 @@ components:
       - updatedAt
       - type
       - data
-    LogArtifactDto:
-      type: object
-      properties:
-        id:
-          type: string
-        provider:
-          type: string
-          enum:
-          - datadog
-          - github
-          - slack
-          - antimetal
-          - sentry
-          - kubernetes
-          - incident-io
-          - prometheus
-          - grafana-tempo
-          - loki
-          - gcp
-          - cloudwatch
-          - user
-        providerUrl:
-          type:
-          - string
-          - 'null'
-        summary:
-          type:
-          - string
-          - 'null'
-        createdAt:
-          type: string
-          format: date-time
-          pattern: ^(?:(?:\d\d[2468][048]|\d\d[13579][26]|\d\d0[48]|[02468][048]00|[13579][26]00)-02-29|\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\d|30)|(?:02)-(?:0[1-9]|1\d|2[0-8])))T(?:(?:[01]\d|2[0-3]):[0-5]\d(?::[0-5]\d(?:\.\d+)?)?(?:Z))$
-        updatedAt:
-          type: string
-          format: date-time
-          pattern: ^(?:(?:\d\d[2468][048]|\d\d[13579][26]|\d\d0[48]|[02468][048]00|[13579][26]00)-02-29|\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\d|30)|(?:02)-(?:0[1-9]|1\d|2[0-8])))T(?:(?:[01]\d|2[0-3]):[0-5]\d(?::[0-5]\d(?:\.\d+)?)?(?:Z))$
-        type:
-          type: string
-          enum:
-          - log
-        data:
-          type: object
-          properties:
-            logs:
-              type: array
-              items:
-                type: object
-                properties:
-                  timestamp:
-                    type: string
-                  body:
-                    type: string
-                  severity:
-                    type: string
-                  attributes:
-                    type: object
-                    additionalProperties:
-                      anyOf:
-                      - type: string
-                      - type: number
-                      - type: boolean
-                      - type: array
-                        items:
-                          type: string
-                required:
-                - timestamp
-                - body
-                - severity
-          required:
-          - logs
-      required:
-      - id
-      - provider
-      - providerUrl
-      - summary
-      - createdAt
-      - updatedAt
-      - type
-      - data
-    TopologyArtifactDto:
-      type: object
-      properties:
-        id:
-          type: string
-        provider:
-          type: string
-          enum:
-          - datadog
-          - github
-          - slack
-          - antimetal
-          - sentry
-          - kubernetes
-          - incident-io
-          - prometheus
-          - grafana-tempo
-          - loki
-          - gcp
-          - cloudwatch
-          - user
-        providerUrl:
-          type:
-          - string
-          - 'null'
-        summary:
-          type:
-          - string
-          - 'null'
-        createdAt:
-          type: string
-          format: date-time
-          pattern: ^(?:(?:\d\d[2468][048]|\d\d[13579][26]|\d\d0[48]|[02468][048]00|[13579][26]00)-02-29|\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\d|30)|(?:02)-(?:0[1-9]|1\d|2[0-8])))T(?:(?:[01]\d|2[0-3]):[0-5]\d(?::[0-5]\d(?:\.\d+)?)?(?:Z))$
-        updatedAt:
-          type: string
-          format: date-time
-          pattern: ^(?:(?:\d\d[2468][048]|\d\d[13579][26]|\d\d0[48]|[02468][048]00|[13579][26]00)-02-29|\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\d|30)|(?:02)-(?:0[1-9]|1\d|2[0-8])))T(?:(?:[01]\d|2[0-3]):[0-5]\d(?::[0-5]\d(?:\.\d+)?)?(?:Z))$
-        type:
-          type: string
-          enum:
-          - topology
-        data:
-          default: {}
-          type: object
-          additionalProperties:
-            type: object
-            properties:
-              calls:
-                default: []
-                type: array
-                items:
-                  type: string
-      required:
-      - id
-      - provider
-      - providerUrl
-      - summary
-      - createdAt
-      - updatedAt
-      - type
     MetricArtifactDto:
       type: object
       properties:
@@ -769,31 +525,238 @@ components:
       - updatedAt
       - type
       - data
-    ErrorResponseDto:
+    LogArtifactDto:
       type: object
       properties:
+        id:
+          type: string
+        provider:
+          type: string
+          enum:
+          - datadog
+          - github
+          - slack
+          - antimetal
+          - sentry
+          - kubernetes
+          - incident-io
+          - prometheus
+          - grafana-tempo
+          - loki
+          - gcp
+          - cloudwatch
+          - user
+        providerUrl:
+          type:
+          - string
+          - 'null'
+        summary:
+          type:
+          - string
+          - 'null'
+        createdAt:
+          type: string
+          format: date-time
+          pattern: ^(?:(?:\d\d[2468][048]|\d\d[13579][26]|\d\d0[48]|[02468][048]00|[13579][26]00)-02-29|\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\d|30)|(?:02)-(?:0[1-9]|1\d|2[0-8])))T(?:(?:[01]\d|2[0-3]):[0-5]\d(?::[0-5]\d(?:\.\d+)?)?(?:Z))$
+        updatedAt:
+          type: string
+          format: date-time
+          pattern: ^(?:(?:\d\d[2468][048]|\d\d[13579][26]|\d\d0[48]|[02468][048]00|[13579][26]00)-02-29|\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\d|30)|(?:02)-(?:0[1-9]|1\d|2[0-8])))T(?:(?:[01]\d|2[0-3]):[0-5]\d(?::[0-5]\d(?:\.\d+)?)?(?:Z))$
         type:
           type: string
           enum:
-          - api_error
-          - invalid_request_error
-          - authentication_error
-          description: Error type classification
-        message:
+          - log
+        data:
+          type: object
+          properties:
+            logs:
+              type: array
+              items:
+                type: object
+                properties:
+                  timestamp:
+                    type: string
+                  body:
+                    type: string
+                  severity:
+                    type: string
+                  attributes:
+                    type: object
+                    additionalProperties:
+                      anyOf:
+                      - type: string
+                      - type: number
+                      - type: boolean
+                      - type: array
+                        items:
+                          type: string
+                required:
+                - timestamp
+                - body
+                - severity
+          required:
+          - logs
+      required:
+      - id
+      - provider
+      - providerUrl
+      - summary
+      - createdAt
+      - updatedAt
+      - type
+      - data
+    MetricArtifactDto__schema0:
+      type: object
+      properties:
+        key:
           type: string
-          description: Human-readable error message
-        request_id:
+        value:
+          $ref: '#/components/schemas/MetricArtifactDto__schema1'
+    TopologyArtifactDto:
+      type: object
+      properties:
+        id:
           type: string
-          description: Request correlation ID for tracing and support
-        details:
-          description: Detailed field-level validation errors (for 400/422 responses)
+        provider:
+          type: string
+          enum:
+          - datadog
+          - github
+          - slack
+          - antimetal
+          - sentry
+          - kubernetes
+          - incident-io
+          - prometheus
+          - grafana-tempo
+          - loki
+          - gcp
+          - cloudwatch
+          - user
+        providerUrl:
+          type:
+          - string
+          - 'null'
+        summary:
+          type:
+          - string
+          - 'null'
+        createdAt:
+          type: string
+          format: date-time
+          pattern: ^(?:(?:\d\d[2468][048]|\d\d[13579][26]|\d\d0[48]|[02468][048]00|[13579][26]00)-02-29|\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\d|30)|(?:02)-(?:0[1-9]|1\d|2[0-8])))T(?:(?:[01]\d|2[0-3]):[0-5]\d(?::[0-5]\d(?:\.\d+)?)?(?:Z))$
+        updatedAt:
+          type: string
+          format: date-time
+          pattern: ^(?:(?:\d\d[2468][048]|\d\d[13579][26]|\d\d0[48]|[02468][048]00|[13579][26]00)-02-29|\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\d|30)|(?:02)-(?:0[1-9]|1\d|2[0-8])))T(?:(?:[01]\d|2[0-3]):[0-5]\d(?::[0-5]\d(?:\.\d+)?)?(?:Z))$
+        type:
+          type: string
+          enum:
+          - topology
+        data:
+          default: {}
           type: object
           additionalProperties:
-            type: string
+            type: object
+            properties:
+              calls:
+                default: []
+                type: array
+                items:
+                  type: string
       required:
+      - id
+      - provider
+      - providerUrl
+      - summary
+      - createdAt
+      - updatedAt
       - type
-      - message
-      - request_id
+    FileArtifactDto:
+      type: object
+      properties:
+        id:
+          type: string
+        provider:
+          type: string
+          enum:
+          - datadog
+          - github
+          - slack
+          - antimetal
+          - sentry
+          - kubernetes
+          - incident-io
+          - prometheus
+          - grafana-tempo
+          - loki
+          - gcp
+          - cloudwatch
+          - user
+        providerUrl:
+          type:
+          - string
+          - 'null'
+        summary:
+          type:
+          - string
+          - 'null'
+        createdAt:
+          type: string
+          format: date-time
+          pattern: ^(?:(?:\d\d[2468][048]|\d\d[13579][26]|\d\d0[48]|[02468][048]00|[13579][26]00)-02-29|\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\d|30)|(?:02)-(?:0[1-9]|1\d|2[0-8])))T(?:(?:[01]\d|2[0-3]):[0-5]\d(?::[0-5]\d(?:\.\d+)?)?(?:Z))$
+        updatedAt:
+          type: string
+          format: date-time
+          pattern: ^(?:(?:\d\d[2468][048]|\d\d[13579][26]|\d\d0[48]|[02468][048]00|[13579][26]00)-02-29|\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\d|30)|(?:02)-(?:0[1-9]|1\d|2[0-8])))T(?:(?:[01]\d|2[0-3]):[0-5]\d(?::[0-5]\d(?:\.\d+)?)?(?:Z))$
+        type:
+          type: string
+          enum:
+          - file
+        data:
+          type: object
+          properties:
+            content:
+              type: string
+              description: The text content of the file
+            metadata:
+              type: object
+              properties:
+                fileName:
+                  type: string
+                  description: The name of the file
+                filePath:
+                  type: string
+                  description: The path to the file
+                language:
+                  type: string
+                  description: The programming language of the code
+                lineStart:
+                  description: The start line of the code snippet, inclusive
+                  type: integer
+                  maximum: 9007199254740991
+                  exclusiveMinimum: 0
+                lineEnd:
+                  description: The end line of the code snippet, inclusive
+                  type: integer
+                  maximum: 9007199254740991
+                  exclusiveMinimum: 0
+              required:
+              - fileName
+              - filePath
+              - language
+          required:
+          - content
+          - metadata
+      required:
+      - id
+      - provider
+      - providerUrl
+      - summary
+      - createdAt
+      - updatedAt
+      - type
+      - data
     EventArtifactDto:
       type: object
       properties:
@@ -868,6 +831,43 @@ components:
       - updatedAt
       - type
       - data
+    MetricArtifactDto__schema1:
+      type: object
+      properties:
+        stringValue:
+          type: string
+        boolValue:
+          type: boolean
+        intValue:
+          type: string
+        doubleValue:
+          anyOf:
+          - type: number
+          - type: string
+            enum:
+            - NaN
+          - type: string
+            enum:
+            - Infinity
+          - type: string
+            enum:
+            - -Infinity
+        arrayValue:
+          type: object
+          properties:
+            values:
+              type: array
+              items:
+                $ref: '#/components/schemas/MetricArtifactDto__schema1'
+        kvlistValue:
+          type: object
+          properties:
+            values:
+              type: array
+              items:
+                $ref: '#/components/schemas/MetricArtifactDto__schema0'
+        bytesValue:
+          type: string
   parameters:
     AntimetalVersion:
       name: Antimetal-Version
