@@ -1,0 +1,12 @@
+{
+ "url": "https://docs.antimetal.com/assets/openapi.mintlify.json",
+ "requested_url": "https://docs.antimetal.com/assets/openapi.mintlify.json",
+ "status": 200,
+ "content_type": "application/json",
+ "bytes": 120076,
+ "sha256": "0539acd362bf5b87836c5d5e28a9f5fa524091cc36ddf3988ee89422b135d73f",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "byte-identical",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the archived file is byte-identical to what the provider serves."
+}
