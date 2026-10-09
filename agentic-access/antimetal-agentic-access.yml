@@ -1,19 +1,30 @@
-generated: '2026-08-06'
+generated: '2026-09-23'
 method: generated
-source: openapi/antimetal-external-api-openapi.json
+source: openapi/antimetal-artifacts-api-openapi.yml, openapi/antimetal-issues-api-openapi.yml,
+  openapi/antimetal-query-api-openapi.yml
 description: Recommended x-agentic-access execution contracts, classified heuristically from
   the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
   audience per deployment. See research/curity/agentic-governance/.
 summary:
   operations: 9
   by_action_class:
-    acting: 4
-    connected: 5
+    connected: 6
+    acting: 3
   by_consequence:
-    write: 4
-    read: 5
+    read: 6
+    write: 3
   human_in_the_loop_required: 0
 operations:
+- path: /artifacts
+  method: get
+  operationId: batchGetArtifacts
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
 - path: /issues
   method: post
   operationId: createIssue
@@ -102,9 +113,9 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /artifacts
-  method: get
-  operationId: batchGetArtifacts
+- path: /query
+  method: post
+  operationId: query
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -112,19 +123,3 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /query
-  method: post
-  operationId: query
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
