@@ -525,6 +525,103 @@ components:
       - updatedAt
       - type
       - data
+    MetricArtifactDto__schema1:
+      type: object
+      properties:
+        stringValue:
+          type: string
+        boolValue:
+          type: boolean
+        intValue:
+          type: string
+        doubleValue:
+          anyOf:
+          - type: number
+          - type: string
+            enum:
+            - NaN
+          - type: string
+            enum:
+            - Infinity
+          - type: string
+            enum:
+            - -Infinity
+        arrayValue:
+          type: object
+          properties:
+            values:
+              type: array
+              items:
+                $ref: '#/components/schemas/MetricArtifactDto__schema1'
+        kvlistValue:
+          type: object
+          properties:
+            values:
+              type: array
+              items:
+                $ref: '#/components/schemas/MetricArtifactDto__schema0'
+        bytesValue:
+          type: string
+    TopologyArtifactDto:
+      type: object
+      properties:
+        id:
+          type: string
+        provider:
+          type: string
+          enum:
+          - datadog
+          - github
+          - slack
+          - antimetal
+          - sentry
+          - kubernetes
+          - incident-io
+          - prometheus
+          - grafana-tempo
+          - loki
+          - gcp
+          - cloudwatch
+          - user
+        providerUrl:
+          type:
+          - string
+          - 'null'
+        summary:
+          type:
+          - string
+          - 'null'
+        createdAt:
+          type: string
+          format: date-time
+          pattern: ^(?:(?:\d\d[2468][048]|\d\d[13579][26]|\d\d0[48]|[02468][048]00|[13579][26]00)-02-29|\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\d|30)|(?:02)-(?:0[1-9]|1\d|2[0-8])))T(?:(?:[01]\d|2[0-3]):[0-5]\d(?::[0-5]\d(?:\.\d+)?)?(?:Z))$
+        updatedAt:
+          type: string
+          format: date-time
+          pattern: ^(?:(?:\d\d[2468][048]|\d\d[13579][26]|\d\d0[48]|[02468][048]00|[13579][26]00)-02-29|\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\d|30)|(?:02)-(?:0[1-9]|1\d|2[0-8])))T(?:(?:[01]\d|2[0-3]):[0-5]\d(?::[0-5]\d(?:\.\d+)?)?(?:Z))$
+        type:
+          type: string
+          enum:
+          - topology
+        data:
+          default: {}
+          type: object
+          additionalProperties:
+            type: object
+            properties:
+              calls:
+                default: []
+                type: array
+                items:
+                  type: string
+      required:
+      - id
+      - provider
+      - providerUrl
+      - summary
+      - createdAt
+      - updatedAt
+      - type
     LogArtifactDto:
       type: object
       properties:
@@ -605,14 +702,7 @@ components:
       - updatedAt
       - type
       - data
-    MetricArtifactDto__schema0:
-      type: object
-      properties:
-        key:
-          type: string
-        value:
-          $ref: '#/components/schemas/MetricArtifactDto__schema1'
-    TopologyArtifactDto:
+    EventArtifactDto:
       type: object
       properties:
         id:
@@ -652,18 +742,31 @@ components:
         type:
           type: string
           enum:
-          - topology
+          - event
         data:
-          default: {}
           type: object
-          additionalProperties:
-            type: object
-            properties:
-              calls:
-                default: []
-                type: array
-                items:
-                  type: string
+          properties:
+            events:
+              type: array
+              items:
+                type: object
+                properties:
+                  eventId:
+                    type: string
+                  timestampUnixNano:
+                    type: number
+                  title:
+                    type: string
+                  message:
+                    type: string
+                  service:
+                    type: string
+                required:
+                - eventId
+                - timestampUnixNano
+                - title
+          required:
+          - events
       required:
       - id
       - provider
@@ -672,6 +775,7 @@ components:
       - createdAt
       - updatedAt
       - type
+      - data
     FileArtifactDto:
       type: object
       properties:
@@ -757,117 +861,13 @@ components:
       - updatedAt
       - type
       - data
-    EventArtifactDto:
+    MetricArtifactDto__schema0:
       type: object
       properties:
-        id:
+        key:
           type: string
-        provider:
-          type: string
-          enum:
-          - datadog
-          - github
-          - slack
-          - antimetal
-          - sentry
-          - kubernetes
-          - incident-io
-          - prometheus
-          - grafana-tempo
-          - loki
-          - gcp
-          - cloudwatch
-          - user
-        providerUrl:
-          type:
-          - string
-          - 'null'
-        summary:
-          type:
-          - string
-          - 'null'
-        createdAt:
-          type: string
-          format: date-time
-          pattern: ^(?:(?:\d\d[2468][048]|\d\d[13579][26]|\d\d0[48]|[02468][048]00|[13579][26]00)-02-29|\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\d|30)|(?:02)-(?:0[1-9]|1\d|2[0-8])))T(?:(?:[01]\d|2[0-3]):[0-5]\d(?::[0-5]\d(?:\.\d+)?)?(?:Z))$
-        updatedAt:
-          type: string
-          format: date-time
-          pattern: ^(?:(?:\d\d[2468][048]|\d\d[13579][26]|\d\d0[48]|[02468][048]00|[13579][26]00)-02-29|\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\d|30)|(?:02)-(?:0[1-9]|1\d|2[0-8])))T(?:(?:[01]\d|2[0-3]):[0-5]\d(?::[0-5]\d(?:\.\d+)?)?(?:Z))$
-        type:
-          type: string
-          enum:
-          - event
-        data:
-          type: object
-          properties:
-            events:
-              type: array
-              items:
-                type: object
-                properties:
-                  eventId:
-                    type: string
-                  timestampUnixNano:
-                    type: number
-                  title:
-                    type: string
-                  message:
-                    type: string
-                  service:
-                    type: string
-                required:
-                - eventId
-                - timestampUnixNano
-                - title
-          required:
-          - events
-      required:
-      - id
-      - provider
-      - providerUrl
-      - summary
-      - createdAt
-      - updatedAt
-      - type
-      - data
-    MetricArtifactDto__schema1:
-      type: object
-      properties:
-        stringValue:
-          type: string
-        boolValue:
-          type: boolean
-        intValue:
-          type: string
-        doubleValue:
-          anyOf:
-          - type: number
-          - type: string
-            enum:
-            - NaN
-          - type: string
-            enum:
-            - Infinity
-          - type: string
-            enum:
-            - -Infinity
-        arrayValue:
-          type: object
-          properties:
-            values:
-              type: array
-              items:
-                $ref: '#/components/schemas/MetricArtifactDto__schema1'
-        kvlistValue:
-          type: object
-          properties:
-            values:
-              type: array
-              items:
-                $ref: '#/components/schemas/MetricArtifactDto__schema0'
-        bytesValue:
-          type: string
+        value:
+          $ref: '#/components/schemas/MetricArtifactDto__schema1'
   parameters:
     AntimetalVersion:
       name: Antimetal-Version
